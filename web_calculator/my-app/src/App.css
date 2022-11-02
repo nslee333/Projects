@@ -7,6 +7,37 @@
   pointer-events: none;
 }
 
+
+.input-div {
+  text-align: center;
+  width: 25%;
+  height: 25%;
+}
+
+
+.btn-div {
+  position: absolute;
+  text-align: center;
+  width: 900px;
+  border-style: groove;
+  border-color: red;
+  border-width: 10px;
+  left: 25%;
+  top: 25%;
+  padding: 10px;
+}
+
+
+
+
+
+
+.btn {
+  font-family: consolas;
+  font-size: 35px;
+  margin: 5px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
