@@ -12,19 +12,32 @@
   text-align: center;
   width: 25%;
   height: 25%;
+  margin: 50px;
+  padding: 10px;
 }
 
 
 .btn-div {
   position: absolute;
   text-align: center;
-  width: 900px;
+  width: 375px;
+  height: 375px;
   border-style: groove;
   border-color: red;
   border-width: 10px;
   left: 25%;
   top: 25%;
   padding: 10px;
+}
+
+.action-div {
+  margin: 20px;
+  padding: 10px;
+}
+
+.number-div {
+  margin: 20px;
+  
 }
 
 
