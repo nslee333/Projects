@@ -2,19 +2,28 @@ body {
   display: grid;
   margin: 0;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
-  /* background-color: hsl(60, 8%, 10%) */
+  background-image: URL('background.jpeg');
 }
 
-button, input {
-  font-color: white;
-  background-color: white;
+
+button {
+  background-color: #384a5d;
 }
 
+input {
+  background-color: #384a5d;
+  color: #d0b79d;
+  font-family: consolas;
+}
+
+button:hover {
+  background-color: #d0b79d;
+}
 
 
 .btn-div {
+  position: fixed; 
   display: grid;
-  /* border: 2px solid purple; */
   grid-template-areas: 
   "A B C"
   "D E F"
@@ -22,70 +31,53 @@ button, input {
   ". . .";
   width: 35%;
   height: 250px;
-  top: 80%;
-  left: 50%;
+  top: 17rem;
+  left: 35rem;
 
-  transform: translate(-50%, -50%);
-  position: absolute;
-  /* margin: 50px; */
-  
 }
 
 
 .btn {
   font-family: consolas;
-  margin: 3px;
+  margin: 5px;
   font-size: 30px;
 }
 
 .btn-a {
   height: 40px;
-  width: 70px;
-  margin: 3px;
+  width: 95px;
+  font-size: 25px;
 }
 
 .input-div {
-  position: absolute;
-  display: flex;
-  /* border: 2px solid purple; */
-  margin: 10px;
-  top: -20%;
-  left: 50%;
+  position: fixed;
+  top: 12rem;
+  left: 35rem;
 }
 
 .input {
   height: 50px;
+  width: 41rem;
   font-size: 30px;
 }
 
 .action-div {
-  position: absolute;
+  position: fixed;
   display: grid;
   grid-template-areas:
   "."
   "."
   "."
   ".";
-  width: 78px;
-  height: 250px;
-
-
-  top: 30%;
-  right: 10%;
-  height: 250px;
-
-
-
-  /* padding: 10px; */
-  /* border: 2px solid purple; */
+  width: 10%;
+  height: 22.2rem;
+  top: 11.9rem;
+  right: 30rem;
 }
 
-/* .test {
-  border: 5px solid purple;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-
-
-} */
+.footer {
+  color: #d0b79d;
+  top: 90%;
+  right: 50%;
+  position:fixed;
+}

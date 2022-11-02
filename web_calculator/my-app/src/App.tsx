@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   return (
 
-      <div className='App'>
+      <div>
           <div className='input-div'>
             <input placeholder='123' className='input'></input>
           </div>
@@ -32,7 +32,7 @@ function App() {
               <button className='btn-a'>=</button>
             </div>
         </div>
-        
+        <footer className='footer'>Made by Nathan Lee</footer>
       </div>
       
   );
