@@ -21,15 +21,6 @@ function App() {
             <button className='btn'>0</button>
             <button className='btn'>␡</button>
           </div>
-
-          {/* <div className='action-div'>
-            <button className='btn'>+</button>
-            <button className='btn'>-</button>
-            <button className='btn'>x</button>
-            <button className='btn'>/</button>
-            <button className='btn'>=</button>
-          </div> */}
-
           <div>
             <div className='action-div'>
               <button className='btn-a'>+</button>
