@@ -1,0 +1,2 @@
+- Write a basic front end.
+- Write a basic script that calculates it.
