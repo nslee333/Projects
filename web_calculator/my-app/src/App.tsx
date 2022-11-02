@@ -7,10 +7,10 @@ function App() {
 
 
     <div className='App'>
-      
-      <input className='input-div' placeholder='123'></input>
 
         <div className="btn-div">
+
+        <input className='input-div'></input>
           
           <div className='action-div'>
             <button className='btn'>Multiply</button>
