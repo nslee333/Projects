@@ -1,13 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
+
 
 function App() {
-  return (
 
+
+  const [total, setTotal] = useState(0);
+  
+  
+  
+  return (
       <div>
           <div className='input-div'>
-            <input placeholder='123' className='input'></input>
+            <input placeholder='123' type='text' className='input'></input>
           </div>
           <div className='btn-div'>
             <button className='btn'>9</button>
@@ -34,7 +41,6 @@ function App() {
         </div>
         <footer className='footer'>Made by Nathan Lee</footer>
       </div>
-      
   );
 }
 
