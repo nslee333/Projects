@@ -8,6 +8,10 @@ function App() {
 
 
   const [total, setTotal] = useState(0);
+
+  // Set up a component / hook for state.
+
+  //
   
   
   
