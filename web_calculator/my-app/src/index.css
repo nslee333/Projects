@@ -2,9 +2,13 @@ body {
   display: grid;
   margin: 0;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
-  background-image: URL('background.jpeg');
+  background-image: URL('CroppedCopy.jpeg');
 }
 
+/* .overall {
+  top: 15rem;
+  border: 15px solid red;
+} */
 
 button {
   background-color: #384a5d;
@@ -34,6 +38,7 @@ button:hover {
   height: 250px;
   top: 17rem;
   left: 35rem;
+  /* border: 1px solid purple; */
 
 }
 
@@ -55,7 +60,7 @@ button:hover {
 .input-div {
   position: fixed;
   top: 12rem;
-  left: 35rem;
+  left: 35.3rem;
   font-size: 50px;
   color: #d0b79d;
 }

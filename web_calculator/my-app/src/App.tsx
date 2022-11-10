@@ -9,49 +9,47 @@ function App() {
   const [result, setResult] = useState(0);
  
 
-    function setState(inputNumber: number) {
-      if(numberA === 0) {
-        setNumberA(inputNumber);
-      } else {
-        setNumberB(inputNumber);
-      }
-    }
+    // function setState(inputNumber: number) {
+    //   if(numberA === 0) {
+    //     setNumberA(inputNumber);
+    //   } else {
+    //     setNumberB(inputNumber);
+    //   }
+    // }
 
-    console.log(numberA, numberB);
+    // function actionSet(action: string) {
+    //   setAction(action);
+    // }
 
-    function actionSet(action: string) {
-      setAction(action);
-    }
+    // function calculate() {
+    //   if (action === '/') {
+    //     const value: number = numberA / numberB;
+    //     setResult(value);
 
-    function calculate() {
-      if (action === '/') {
-        const value: number = numberA / numberB;
-        setResult(value);
+    //   } else if (action === '-') {
+    //     const value: number = numberA - numberB;
+    //     setResult(value);
 
-      } else if (action === '-') {
-        const value: number = numberA - numberB;
-        setResult(value);
+    //   } else if (action === 'x') {
+    //     const value: number = numberA * numberB;
+    //     setResult(value);
 
-      } else if (action === 'x') {
-        const value: number = numberA * numberB;
-        setResult(value);
+    //   } else  {
+    //     const value: number = numberA + numberB;
+    //     setResult(value);
 
-      } else  {
-        const value: number = numberA + numberB;
-        setResult(value);
+    //   }
+    // }
 
-      }
-    }
-
-    function del() {
-      if (numberB !== 0) {
-        setNumberB(0);
-      } else if (numberA !== 0) {
-        setNumberA(0);
-      } else if (numberB === 0) {
-        setResult(0);
-      }
-    }
+    // function del() {
+    //   if (numberB !== 0) {
+    //     setNumberB(0);
+    //   } else if (numberA !== 0) {
+    //     setNumberA(0);
+    //   } else if (numberB === 0) {
+    //     setResult(0);
+    //   }
+    // }
 
 
     function myComponent() {
@@ -65,6 +63,7 @@ function App() {
   return (
 
       <div className='App'>
+        <div className='overall'>
           <div className='input-div'>
             {myComponent()}
           </div>
@@ -91,9 +90,11 @@ function App() {
               <button className='btn-a' onClick={async () => calculate()}>=</button>
             </div>
         </div>
+        </div>
       </div>
       
   );
 }
 
 export default App;
+export {numberA, setNumberA, numberB};

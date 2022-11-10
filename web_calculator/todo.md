@@ -3,3 +3,5 @@
 3. Chain multiple calculations together.
 4. History of calculations
     - Display the history in a window.
+
+!! Stopped on researching if you can export react hooks to separate files.
