@@ -6,11 +6,16 @@ function App() {
   const [numberA, setNumberA] = useState(0);
   const [numberB, setNumberB] = useState(0);
   const [action, setAction] = useState('');
+  const [decimal, setDecimal] = useState('');
   const [result, setResult] = useState(0);
  
 
     function setState(inputNumber: number) {
+      // Add decimal functionality to this.
+
+      // If number A is !== number, and if next character
       if(numberA === 0) {
+        // Input ? -- 
         setNumberA(inputNumber);
       } else {
         setNumberB(inputNumber);
