@@ -9,22 +9,37 @@ function App() {
   const [decimal, setDecimal] = useState('');
   const [result, setResult] = useState(0);
   const [actionUsed, setActionUsed] = useState(false);
+  const [calculated, setCalculated] = useState(false);
+
+  console.log(numberA, "NumberA");
+  console.log(numberB, "NumberB");
+  console.log(numberB, "NumberB");
+
  
 
     function setState(inputValue: string ) {
       let inputArray: string[] = [];
 
       if(numberA === 0) {
+
         if (actionUsed === true) {
           const floatNumber = parseFloatArray(inputArray);
           setNumberA(floatNumber);
+          inputArray = [];
           
         } else {
           inputArray.push(inputValue);
         }
 
        } else {
-        // setNumberB(inputNumber);
+
+        if (calculated === true) {
+          const floatNumber = parseFloatArray(inputArray);
+          setNumberB(floatNumber);
+          inputArray = [];
+        } else {
+          inputArray.push(inputValue);
+        }
       }
     }
 
@@ -34,7 +49,7 @@ function App() {
       for (const element in array) {
         floatString += element;
       }
-
+      console.log(parseFloat(floatString));
       return parseFloat(floatString);
     }
 
@@ -71,8 +86,10 @@ function App() {
     function del() {
       if (numberB !== 0) {
         setNumberB(0);
+
       } else if (numberA !== 0) {
         setNumberA(0);
+
       } else if (numberB === 0) {
         setResult(0);
       }
@@ -114,7 +131,7 @@ function App() {
               <button className='btn-a' onClick={async () => {actionSet('-')}}>-</button>
               <button className='btn-a' onClick={async () => {actionSet('x')}}>x</button>
               <button className='btn-a' onClick={async () => {actionSet('/')}}>/</button>
-              <button className='btn-a' onClick={async () => calculate()}>=</button>
+              <button className='btn-a' onClick={async () => (calculate(), setCalculated(true))}>=</button>
             </div>
         </div>
         </div>

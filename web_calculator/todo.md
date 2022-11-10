@@ -1,7 +1,7 @@
 2. Add functionality for decimal places.
     - Convert state hooks to strings.
     - write parseFloat function.
-    - 
+    - convert calculate() to using decimal precise library.
 3. Chain multiple calculations together.
 4. History of calculations.
     - Display the history in a window.
