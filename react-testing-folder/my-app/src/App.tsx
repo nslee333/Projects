@@ -6,51 +6,57 @@ function App() {
   const [numberA, setNumberA] = useState(0);
   const [numberB, setNumberB] = useState(0);
   const [action, setAction] = useState('');
+  const [decimal, setDecimal] = useState(false);
   const [result, setResult] = useState(0);
+
  
 
     function setState(inputNumber: number) {
+     
       if(numberA === 0) {
+        if (decimal === true) {
+          const value: number = 
+        }
         setNumberA(inputNumber);
       } else {
         setNumberB(inputNumber);
       }
     }
 
-    console.log(numberA, numberB);
-
     function actionSet(action: string) {
       setAction(action);
     }
 
-    function calculate() {
-      if (action === '+') {
+    // Convert to decimal precise calculations.
 
-        const value: number = numberA + numberB;
+    function calculate() {
+      if (action === '/') {
+        const value: number = numberA / numberB;
         setResult(value);
 
-      } else if(action === '-') {
-
+      } else if (action === '-') {
         const value: number = numberA - numberB;
         setResult(value);
 
       } else if (action === 'x') {
-
         const value: number = numberA * numberB;
         setResult(value);
 
-      } else if (action === '/') {
-
-        const value: number = numberA / numberB;
+      } else  {
+        const value: number = numberA + numberB;
         setResult(value);
 
       }
     }
 
     function del() {
-      setNumberA(0);
-      setNumberB(0);
-      setResult(0);
+      if (numberB !== 0) {
+        setNumberB(0);
+      } else if (numberA !== 0) {
+        setNumberA(0);
+      } else if (numberB === 0) {
+        setResult(0);
+      }
     }
 
 
@@ -65,6 +71,7 @@ function App() {
   return (
 
       <div className='App'>
+        <div className='overall'>
           <div className='input-div'>
             {myComponent()}
           </div>
@@ -90,6 +97,7 @@ function App() {
               <button className='btn-a' onClick={async () => {actionSet('/')}}>/</button>
               <button className='btn-a' onClick={async () => calculate()}>=</button>
             </div>
+        </div>
         </div>
       </div>
       

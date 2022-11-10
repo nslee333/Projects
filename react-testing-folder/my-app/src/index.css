@@ -2,7 +2,7 @@ body {
   display: grid;
   margin: 0;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
-  background-color: hsl(60, 8%, 10%)
+  background-color: grey
 }
 
 button, input {

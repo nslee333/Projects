@@ -8,23 +8,44 @@ function App() {
   const [action, setAction] = useState('');
   const [decimal, setDecimal] = useState('');
   const [result, setResult] = useState(0);
+  const [actionUsed, setActionUsed] = useState(false);
  
 
-    function setState(inputNumber: number) {
-      // Add decimal functionality to this.
+    function setState(inputValue: string ) {
+      let inputArray: string[] = [];
 
-      // If number A is !== number, and if next character
       if(numberA === 0) {
-        // Input ? -- 
-        setNumberA(inputNumber);
-      } else {
-        setNumberB(inputNumber);
+        if (actionUsed === true) {
+          const floatNumber = parseFloatArray(inputArray);
+          setNumberA(floatNumber);
+          
+        } else {
+          inputArray.push(inputValue);
+        }
+
+       } else {
+        // setNumberB(inputNumber);
       }
     }
 
+    function parseFloatArray(array: string[]) {
+      let floatString: string = "";
+
+      for (const element in array) {
+        floatString += element;
+      }
+
+      return parseFloat(floatString);
+    }
+
+
+
     function actionSet(action: string) {
       setAction(action);
+      setActionUsed(true);
     }
+
+    // convert calculations to use decimal precise library.
 
     function calculate() {
       if (action === '/') {
@@ -44,6 +65,7 @@ function App() {
         setResult(value);
 
       }
+      setActionUsed(false);
     }
 
     function del() {
@@ -73,17 +95,17 @@ function App() {
             {myComponent()}
           </div>
           <div className='btn-div'>
-            <button className='btn' onClick={async () => {setState(9)}}>9</button>
-            <button className='btn' onClick={async () => {setState(8)}}>8</button>
-            <button className='btn' onClick={async () => {setState(7)}}>7</button>
-            <button className='btn' onClick={async () => {setState(6)}}>6</button>
-            <button className='btn' onClick={async () => {setState(5)}}>5</button>
-            <button className='btn' onClick={async () => {setState(4)}}>4</button>
-            <button className='btn' onClick={async () => {setState(3)}}>3</button>
-            <button className='btn' onClick={async () => {setState(2)}}>2</button>
-            <button className='btn' onClick={async () => {setState(1)}}>1</button>
-            <button className='btn' onClick={async () => {setState(0)}}>.</button>
-            <button className='btn' onClick={async () => {setState(0)}}>0</button>
+            <button className='btn' onClick={async () => {setState('9')}}>9</button>
+            <button className='btn' onClick={async () => {setState('8')}}>8</button>
+            <button className='btn' onClick={async () => {setState('7')}}>7</button>
+            <button className='btn' onClick={async () => {setState('6')}}>6</button>
+            <button className='btn' onClick={async () => {setState('5')}}>5</button>
+            <button className='btn' onClick={async () => {setState('4')}}>4</button>
+            <button className='btn' onClick={async () => {setState('3')}}>3</button>
+            <button className='btn' onClick={async () => {setState('2')}}>2</button>
+            <button className='btn' onClick={async () => {setState('1')}}>1</button>
+            <button className='btn' onClick={async () => {setState('.')}}>.</button>
+            <button className='btn' onClick={async () => {setState('0')}}>0</button>
             <button className='btn' onClick={async () => {del()}}>␡</button>
           </div>
           <div>
