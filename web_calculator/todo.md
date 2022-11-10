@@ -1,2 +1,5 @@
-- Write a basic front end.
-- Write a basic script that calculates it.
+1. Consider moving functions to seperate ts file.
+2. Add functionality for decimal places.
+3. Chain multiple calculations together.
+4. History of calculations
+    - Display the history in a window.

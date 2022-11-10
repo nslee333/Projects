@@ -25,22 +25,18 @@ function App() {
 
     function calculate() {
       if (action === '/') {
-
         const value: number = numberA / numberB;
         setResult(value);
 
-      } else if(action === '-') {
-
+      } else if (action === '-') {
         const value: number = numberA - numberB;
         setResult(value);
 
       } else if (action === 'x') {
-
         const value: number = numberA * numberB;
         setResult(value);
 
       } else  {
-
         const value: number = numberA + numberB;
         setResult(value);
 
@@ -48,9 +44,13 @@ function App() {
     }
 
     function del() {
-      setNumberA(0);
-      setNumberB(0);
-      setResult(0);
+      if (numberB !== 0) {
+        setNumberB(0);
+      } else if (numberA !== 0) {
+        setNumberA(0);
+      } else if (numberB === 0) {
+        setResult(0);
+      }
     }
 
 
