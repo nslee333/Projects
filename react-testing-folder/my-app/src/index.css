@@ -2,7 +2,7 @@ body {
   display: grid;
   margin: 0;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
-  /* background-color: hsl(60, 8%, 10%) */
+  background-color: hsl(60, 8%, 10%)
 }
 
 button, input {
@@ -47,10 +47,10 @@ button, input {
 .input-div {
   position: absolute;
   display: flex;
-  /* border: 2px solid purple; */
   margin: 10px;
   top: -20%;
-  left: 50%;
+  left: 40%;
+  font-size: 50px;
 }
 
 .input {

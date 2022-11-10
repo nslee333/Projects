@@ -1,50 +1,98 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react';
 
-
 function App() {
+  const [numberA, setNumberA] = useState(0);
+  const [numberB, setNumberB] = useState(0);
+  const [action, setAction] = useState('');
+  const [result, setResult] = useState(0);
+ 
+
+    function setState(inputNumber: number) {
+      if(numberA === 0) {
+        setNumberA(inputNumber);
+      } else {
+        setNumberB(inputNumber);
+      }
+    }
+
+    console.log(numberA, numberB);
+
+    function actionSet(action: string) {
+      setAction(action);
+    }
+
+    function calculate() {
+      if (action === '+') {
+
+        const value: number = numberA + numberB;
+        setResult(value);
+
+      } else if(action === '-') {
+
+        const value: number = numberA - numberB;
+        setResult(value);
+
+      } else if (action === 'x') {
+
+        const value: number = numberA * numberB;
+        setResult(value);
+
+      } else if (action === '/') {
+
+        const value: number = numberA / numberB;
+        setResult(value);
+
+      }
+    }
+
+    function del() {
+      setNumberA(0);
+      setNumberB(0);
+      setResult(0);
+    }
 
 
-  const [total, setTotal] = useState(0);
+    function myComponent() {
+      return (
+        <div>
+          {numberA} {action || '+'} {numberB} {'='} {result}
+        </div>
+      );
+    }
 
-  // Set up a component / hook for state.
-
-  //
-  
-  
-  
   return (
-      <div>
+
+      <div className='App'>
           <div className='input-div'>
-            <input placeholder='123' type='text' className='input'></input>
+            {myComponent()}
           </div>
           <div className='btn-div'>
-            <button className='btn'>9</button>
-            <button className='btn'>8</button>
-            <button className='btn'>7</button>
-            <button className='btn'>6</button>
-            <button className='btn'>5</button>
-            <button className='btn'>4</button>
-            <button className='btn'>3</button>
-            <button className='btn'>2</button>
-            <button className='btn'>1</button>
-            <button className='btn'>.</button>
-            <button className='btn'>0</button>
-            <button className='btn'>␡</button>
+            <button className='btn' onClick={async () => {setState(9)}}>9</button>
+            <button className='btn' onClick={async () => {setState(8)}}>8</button>
+            <button className='btn' onClick={async () => {setState(7)}}>7</button>
+            <button className='btn' onClick={async () => {setState(6)}}>6</button>
+            <button className='btn' onClick={async () => {setState(5)}}>5</button>
+            <button className='btn' onClick={async () => {setState(4)}}>4</button>
+            <button className='btn' onClick={async () => {setState(3)}}>3</button>
+            <button className='btn' onClick={async () => {setState(2)}}>2</button>
+            <button className='btn' onClick={async () => {setState(1)}}>1</button>
+            <button className='btn' onClick={async () => {setState(0)}}>.</button>
+            <button className='btn' onClick={async () => {setState(0)}}>0</button>
+            <button className='btn' onClick={async () => {del()}}>␡</button>
           </div>
           <div>
             <div className='action-div'>
-              <button className='btn-a'>+</button>
-              <button className='btn-a'>-</button>
-              <button className='btn-a'>x</button>
-              <button className='btn-a'>/</button>
-              <button className='btn-a'>=</button>
+              <button className='btn-a' onClick={async () => {actionSet('+')}}>+</button>
+              <button className='btn-a' onClick={async () => {actionSet('-')}}>-</button>
+              <button className='btn-a' onClick={async () => {actionSet('x')}}>x</button>
+              <button className='btn-a' onClick={async () => {actionSet('/')}}>/</button>
+              <button className='btn-a' onClick={async () => calculate()}>=</button>
             </div>
         </div>
-        <footer className='footer'>Made by Nathan Lee</footer>
       </div>
+      
   );
 }
 
