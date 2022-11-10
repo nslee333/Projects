@@ -24,9 +24,9 @@ function App() {
     }
 
     function calculate() {
-      if (action === '+') {
+      if (action === '/') {
 
-        const value: number = numberA + numberB;
+        const value: number = numberA / numberB;
         setResult(value);
 
       } else if(action === '-') {
@@ -39,9 +39,9 @@ function App() {
         const value: number = numberA * numberB;
         setResult(value);
 
-      } else if (action === '/') {
+      } else  {
 
-        const value: number = numberA / numberB;
+        const value: number = numberA + numberB;
         setResult(value);
 
       }

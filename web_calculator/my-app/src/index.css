@@ -18,6 +18,7 @@ input {
 
 button:hover {
   background-color: #d0b79d;
+  color: #384a5d;
 }
 
 
@@ -41,12 +42,14 @@ button:hover {
   font-family: consolas;
   margin: 5px;
   font-size: 30px;
+  color: #d0b79d;
 }
 
 .btn-a {
   height: 40px;
   width: 95px;
   font-size: 25px;
+  color: #d0b79d;
 }
 
 .input-div {
@@ -54,6 +57,7 @@ button:hover {
   top: 12rem;
   left: 35rem;
   font-size: 50px;
+  color: #d0b79d;
 }
 
 .input {
@@ -71,8 +75,8 @@ button:hover {
   "."
   ".";
   width: 10%;
-  height: 22.2rem;
-  top: 11.9rem;
+  height: 15.5rem;
+  top: 17.33rem;
   right: 30rem;
 }
 
