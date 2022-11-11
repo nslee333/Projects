@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import {useState} from 'react';
 
@@ -7,53 +7,68 @@ function App() {
   const [numberB, setNumberB] = useState(0);
   const [action, setAction] = useState('');
   const [result, setResult] = useState(0);
-  const [actionUsed, setActionUsed] = useState(false);
   const [calculated, setCalculated] = useState(false);
-  const [inputArray, setInputArray]: string[] = useState([]);
+  const [inputArray, setInputArray] = useState<string[]>([]);
+  const [currentValue, SetCurrentValue] = useState(0);
 
-  // console.log(calculated, actionUsed);
-  // console.log(numberA, numberB);
+  
+  console.log(inputArray, "Top level");
 
- 
-    // const inputArray: string[] = [];
+  useEffect(() => {
+    
+    console.log("UseEffect log")
+    stateCheck();
+    const displayArray: number = parseArray(inputArray);
+    SetCurrentValue(displayArray);
+  
 
-    function setState(inputChar: string) {
-      console.log(actionUsed, "Action before");
-      
-      if (actionUsed === true && numberA === 0) {
+  }, [inputArray, calculated, numberA, numberB, action]);
+
+  function func() {
+    const displayArray: number = parseArray(inputArray);
+    console.log(displayArray);
+  }
+
+    function stateCheck() {
+      if (action !== "" && numberA === 0) {
         const result: number = parseArray(inputArray);
         setNumberA(result);
-        console.log("Scenario 1");
+        setInputArray([]);
 
       } else if (calculated === true && numberB === 0) {
         const result: number = parseArray(inputArray);
         setNumberB(result);
-        console.log("Scenario 2");
-
-      } else if (actionUsed == false || calculated == false) {
-        inputArray.push(inputChar);
-        console.log("Scenario 3");
+        setInputArray([]);
       }
-      console.log(inputArray, "Input array");
-      // console.log(numberA, numberB, "Number A and B");
-      console.log(actionUsed, "action used after");
-      // setActionUsed(false);
+
     }
 
-    function parseArray(inputArray: string[]) {
-      console.log(inputArray, "InputArray for parseArray");
-      let floatString: string = ""; 
-      for (const element in inputArray) {
-        floatString += element;
+
+ 
+
+    function setState(inputChar: string) {
+
+      stateCheck();
+      console.log(inputArray);
+
+      if (action === "" || calculated == false) {
+        inputArray.push(inputChar);
       }
+    }
+
+
+
+    function parseArray(inputArray: string[]) {
+      let floatString: string = inputArray.join("");
       const result: number = parseFloat(floatString);
-      console.log(result, "parseArray Result");
       return result;
     }
 
+
+
+
     function actionSet(action: string) {
       setAction(action);
-      setActionUsed(true);
     }
 
     // Convert to decimal precise calculations.
@@ -92,7 +107,7 @@ function App() {
     function myComponent() {
       return(
         <div>
-          {numberA} {action} {numberB} {'='} {result}
+          {currentValue || numberA} {action} {numberB} {'='} {result}
         </div>
       );
     }
@@ -120,10 +135,10 @@ function App() {
           </div>
           <div>
             <div className='action-div'>
-              <button className='btn-a' onClick={async () => (actionSet('+'), setActionUsed(true), setState(""))}>+</button>
-              <button className='btn-a' onClick={async () => (actionSet('-'), setActionUsed(true), setState(""))}>-</button>
-              <button className='btn-a' onClick={async () => (actionSet('x'), setActionUsed(true), setState(""))}>x</button>
-              <button className='btn-a' onClick={async () => (actionSet('/'), setActionUsed(true), setState(""))}>/</button>
+              <button className='btn-a' onClick={async () => (actionSet('+'))}>+</button>
+              <button className='btn-a' onClick={async () => (actionSet('-'))}>-</button>
+              <button className='btn-a' onClick={async () => (actionSet('x'))}>x</button>
+              <button className='btn-a' onClick={async () => (actionSet('/'))}>/</button>
               <button className='btn-a' onClick={async () => (setCalculated(true), calculate())}>=</button>
             </div>
         </div>

@@ -8,6 +8,7 @@
 5. Fix background grid imaging.
 6. Add a 'Clear' button to delete all inputs.
 7. Change the way myComponent renders.
+8. Add styling that makes it obvious that input is happening.
 
 
 

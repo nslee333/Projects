@@ -1,3 +1,12 @@
-const floatNum: number = parseFloat("1.2345");
-const intNum: number = parseFloat("1");
-console.log(floatNum, intNum);
+const array: string[] = ["1", ".", "2", "2"];
+
+// const floatString: string = "";
+
+const floatString: string = array.join("");
+
+const finalNum: number = parseFloat(floatString);
+
+// console.log(arrayString);
+console.log(array);
+console.log(floatString, "float string");
+console.log(finalNum);
