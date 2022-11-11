@@ -14,8 +14,10 @@ function App() {
 
 
   useEffect(() => {
-    stateCheck(); 
+    // stateCheck();
     setBtnPress(false);
+    displayArray();
+    console.log(numberA, numberB, result, "UseEffect numbera, b");
 
   }, [btnPress, calculated, numberA, numberB, action, result]);
 
@@ -40,19 +42,17 @@ function App() {
         setNumberB(result);
         setInputArray([]);
       }
-
+      calculate();
     }
 
     function setState(inputChar: string) {
       stateCheck();
-      console.log(inputArray);
-
       if (action === "" || calculated == false) {
         inputArray.push(inputChar);
       }
     }
 
-
+    
 
     function parseArray(inputArray: string[]) {
       let floatString: string = inputArray.join("");
@@ -90,12 +90,12 @@ function App() {
     }
 
     function del() {
-      if (numberB !== 0) {
-        setNumberB(0);
-      } else if (numberA !== 0) {
-        setNumberA(0);
-      } else if (numberB === 0) {
+      if (result !== 0) {
         setResult(0);
+      } else if (numberB !== 0) {
+        setNumberB(0);
+      } else if (numberB === 0) {
+        setNumberA(0);
       }
     }
 
@@ -144,7 +144,7 @@ function App() {
               <button className='btn-a' onClick={async () => (actionSet('-'))}>-</button>
               <button className='btn-a' onClick={async () => (actionSet('x'))}>x</button>
               <button className='btn-a' onClick={async () => (actionSet('/'))}>/</button>
-              <button className='btn-a' onClick={async () => (setCalculated(true), calculate())}>=</button>
+              <button className='btn-a' onClick={async () => (setCalculated(true))}>=</button>
             </div>
         </div>
         </div>

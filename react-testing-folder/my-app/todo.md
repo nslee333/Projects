@@ -1,5 +1,9 @@
 React testing todo:
 
-1. DEL key not working.
+
 2. Add decimal precise library calculations to calculation() function.
-4. Have to hit the equals sign twice.
+
+
+Del key ->
+It's not deleting since useEffect is calling stateCheck().
+Need to figure out a way to keep checking the state, but also allow for deletion.
