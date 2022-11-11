@@ -15,3 +15,5 @@ When I turn off checkState in useEffect I can't calculate more.
 
 Stopped with trying to figure out a way to bypass delete key problem.
 
+<3
+
