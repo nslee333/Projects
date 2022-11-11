@@ -97,6 +97,9 @@ function App() {
       } else if (numberB === 0) {
         setNumberA(0);
       }
+      // setNumberA(0);
+      // setNumberB(0);
+      // setResult(0);
     }
 
     function myComponent() {
