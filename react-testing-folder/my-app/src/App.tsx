@@ -9,27 +9,27 @@ function App() {
   const [result, setResult] = useState(0);
   const [calculated, setCalculated] = useState(false);
   const [inputArray, setInputArray] = useState<string[]>([]);
-  const [currentValue, SetCurrentValue] = useState(0);
+  const [displayNumber, setDisplayNumber] = useState(0);
+  const [btnPress, setBtnPress] = useState(false);
 
-  
-  console.log(inputArray, "Top level");
 
   useEffect(() => {
-    
-    console.log("UseEffect log")
-    stateCheck();
-    const displayArray: number = parseArray(inputArray);
-    SetCurrentValue(displayArray);
-  
+    stateCheck(); 
+    setBtnPress(false);
 
-  }, [inputArray, calculated, numberA, numberB, action]);
+  }, [btnPress, calculated, numberA, numberB, action, result]);
 
-  function func() {
-    const displayArray: number = parseArray(inputArray);
-    console.log(displayArray);
+
+
+
+  function displayArray() {
+    const value: number = parseArray(inputArray);
+    setDisplayNumber(value);
   }
 
+
     function stateCheck() {
+      displayArray();
       if (action !== "" && numberA === 0) {
         const result: number = parseArray(inputArray);
         setNumberA(result);
@@ -43,11 +43,7 @@ function App() {
 
     }
 
-
- 
-
     function setState(inputChar: string) {
-
       stateCheck();
       console.log(inputArray);
 
@@ -103,12 +99,21 @@ function App() {
       }
     }
 
-
     function myComponent() {
-      return(
-        <div>
-          {currentValue || numberA} {action} {numberB} {'='} {result}
-        </div>
+      return (
+        numberA === 0 ? (
+          <div>
+            {displayNumber || ""} 
+          </div>
+        ) : numberB === 0 ? (
+          <div>
+            {numberA} {action || ""} {numberB || displayNumber || ""} 
+          </div>
+        ) : (
+          <div>
+            {numberA} {action} {numberB} = {result}
+          </div>
+        )
       );
     }
 
@@ -120,17 +125,17 @@ function App() {
             {myComponent()}
           </div>
           <div className='btn-div'>
-            <button className='btn' onClick={async () => {setState("9")}}>9</button>
-            <button className='btn' onClick={async () => {setState("8")}}>8</button>
-            <button className='btn' onClick={async () => {setState("7")}}>7</button>
-            <button className='btn' onClick={async () => {setState("6")}}>6</button>
-            <button className='btn' onClick={async () => {setState("5")}}>5</button>
-            <button className='btn' onClick={async () => {setState("4")}}>4</button>
-            <button className='btn' onClick={async () => {setState("3")}}>3</button>
-            <button className='btn' onClick={async () => {setState("2")}}>2</button>
-            <button className='btn' onClick={async () => {setState("1")}}>1</button>
-            <button className='btn' onClick={async () => {setState(".")}}>.</button>
-            <button className='btn' onClick={async () => {setState("0")}}>0</button>
+            <button className='btn' onClick={async () => (setState("9"), setBtnPress(true))}>9</button>
+            <button className='btn' onClick={async () => (setState("8"), setBtnPress(true))}>8</button>
+            <button className='btn' onClick={async () => (setState("7"), setBtnPress(true))}>7</button>
+            <button className='btn' onClick={async () => (setState("6"), setBtnPress(true))}>6</button>
+            <button className='btn' onClick={async () => (setState("5"), setBtnPress(true))}>5</button>
+            <button className='btn' onClick={async () => (setState("4"), setBtnPress(true))}>4</button>
+            <button className='btn' onClick={async () => (setState("3"), setBtnPress(true))}>3</button>
+            <button className='btn' onClick={async () => (setState("2"), setBtnPress(true))}>2</button>
+            <button className='btn' onClick={async () => (setState("1"), setBtnPress(true))}>1</button>
+            <button className='btn' onClick={async () => (setState("."), setBtnPress(true))}>.</button>
+            <button className='btn' onClick={async () => (setState("0"), setBtnPress(true))}>0</button>
             <button className='btn' onClick={async () => {del()}}>␡</button>
           </div>
           <div>
