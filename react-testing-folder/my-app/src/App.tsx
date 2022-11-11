@@ -17,7 +17,6 @@ function App() {
     stateCheck();
     setBtnPress(false);
     displayArray();
-    console.log(numberA, numberB, result, "UseEffect numbera, b");
 
   }, [btnPress, calculated, numberA, numberB, action, result]);
 

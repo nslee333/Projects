@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import {useState} from 'react';
 
@@ -7,64 +7,69 @@ function App() {
   const [numberB, setNumberB] = useState(0);
   const [action, setAction] = useState('');
   const [result, setResult] = useState(0);
-  const [actionUsed, setActionUsed] = useState(false);
   const [calculated, setCalculated] = useState(false);
+  const [inputArray, setInputArray] = useState<string[]>([]);
+  const [displayNumber, setDisplayNumber] = useState(0);
+  const [btnPress, setBtnPress] = useState(false);
 
-  console.log(numberA, "NumberA");
-  console.log(numberB, "NumberB");
-  console.log(numberB, "NumberB");
 
- 
+  useEffect(() => {
+    stateCheck();
+    setBtnPress(false);
+    displayArray();
 
-    function setState(inputValue: string) {
-      let inputArray: string[] = [];
-      console.log(inputValue);
+  }, [btnPress, calculated, numberA, numberB, action, result]);
 
-      if(numberA === 0) {
 
-        if (actionUsed === true) {
-          const floatNumber = parseFloatArray(inputArray);
-          setNumberA(floatNumber);
-          console.log(inputArray);
-          inputArray = [];
-          console.log(inputArray);
-          
-        } else {
-          inputArray.push(inputValue);
-          console.log("else");
-        }
 
-      } else {
 
-        if (calculated === true) {
-          const floatNumber = parseFloatArray(inputArray);
-          setNumberB(floatNumber);
-          inputArray = [];
+  function displayArray() {
+    const value: number = parseArray(inputArray);
+    setDisplayNumber(value);
+  }
 
-        } else {
-          inputArray.push(inputValue);
-        }
+
+    function stateCheck() {
+      displayArray();
+      if (action !== "" && numberA === 0) {
+        const result: number = parseArray(inputArray);
+        setNumberA(result);
+        setInputArray([]);
+
+      } else if (calculated === true && numberB === 0) {
+        const result: number = parseArray(inputArray);
+        setNumberB(result);
+        setInputArray([]);
+      }
+      calculate();
+    }
+
+    function setState(inputChar: string) {
+      stateCheck();
+      if (action === "" || calculated == false) {
+        inputArray.push(inputChar);
       }
     }
 
-    function parseFloatArray(array: string[]) {
-      let floatString: string = "";
+    
 
-      for (const element in array) {
-        floatString += element;
+    function parseArray(inputArray: string[]) {
+      let floatString: string = inputArray.join("");
+      if (inputArray.length === 0) {
+        inputArray.push("0");
       }
-      console.log(parseFloat(floatString), "parse float string");
-      return parseFloat(floatString);
+      const result: number = parseFloat(floatString);
+      return result;
     }
+
 
 
 
     function actionSet(action: string) {
       setAction(action);
-      setActionUsed(true);
     }
 
-    // convert calculations to use decimal precise library.
+    // Convert to decimal precise calculations.
 
     function calculate() {
       if (action === '/') {
@@ -79,33 +84,41 @@ function App() {
         const value: number = numberA * numberB;
         setResult(value);
 
-      } else  {
+      } else if (action === '+') {
         const value: number = numberA + numberB;
         setResult(value);
 
       }
-      setActionUsed(false);
     }
 
-    function del() {
+    function deleteValues() {
       if (numberB !== 0) {
+        setCalculated(false);
+        setAction("");
         setNumberB(0);
-        setActionUsed(false);
-
-      } else if (numberA !== 0) {
-        setNumberA(0);
-
-      } else if (numberB === 0) {
         setResult(0);
-      }
+      } else if (numberA !== 0) {
+        setCalculated(false);
+        setAction("");
+        setNumberA(0)
+      } 
     }
-
 
     function myComponent() {
       return (
-        <div>
-          {numberA} {action || '+'} {numberB} {'='} {result}
-        </div>
+        numberA === 0 ? (
+          <div>
+            {displayNumber || ""} 
+          </div>
+        ) : numberB === 0 ? (
+          <div>
+            {numberA} {action || ""} {numberB || displayNumber || ""} 
+          </div>
+        ) : (
+          <div>
+            {numberA} {action} {numberB} = {result}
+          </div>
+        )
       );
     }
 
@@ -117,26 +130,26 @@ function App() {
             {myComponent()}
           </div>
           <div className='btn-div'>
-            <button className='btn' onClick={async () => {setState('9')}}>9</button>
-            <button className='btn' onClick={async () => {setState('8')}}>8</button>
-            <button className='btn' onClick={async () => {setState('7')}}>7</button>
-            <button className='btn' onClick={async () => {setState('6')}}>6</button>
-            <button className='btn' onClick={async () => {setState('5')}}>5</button>
-            <button className='btn' onClick={async () => {setState('4')}}>4</button>
-            <button className='btn' onClick={async () => {setState('3')}}>3</button>
-            <button className='btn' onClick={async () => {setState('2')}}>2</button>
-            <button className='btn' onClick={async () => {setState('1')}}>1</button>
-            <button className='btn' onClick={async () => {setState('.')}}>.</button>
-            <button className='btn' onClick={async () => {setState('0')}}>0</button>
-            <button className='btn' onClick={async () => {del()}}>␡</button>
+            <button className='btn' onClick={async () => (setState("9"), setBtnPress(true))}>9</button>
+            <button className='btn' onClick={async () => (setState("8"), setBtnPress(true))}>8</button>
+            <button className='btn' onClick={async () => (setState("7"), setBtnPress(true))}>7</button>
+            <button className='btn' onClick={async () => (setState("6"), setBtnPress(true))}>6</button>
+            <button className='btn' onClick={async () => (setState("5"), setBtnPress(true))}>5</button>
+            <button className='btn' onClick={async () => (setState("4"), setBtnPress(true))}>4</button>
+            <button className='btn' onClick={async () => (setState("3"), setBtnPress(true))}>3</button>
+            <button className='btn' onClick={async () => (setState("2"), setBtnPress(true))}>2</button>
+            <button className='btn' onClick={async () => (setState("1"), setBtnPress(true))}>1</button>
+            <button className='btn' onClick={async () => (setState("."), setBtnPress(true))}>.</button>
+            <button className='btn' onClick={async () => (setState("0"), setBtnPress(true))}>0</button>
+            <button className='btn' onClick={async () => {deleteValues()}}>␡</button>
           </div>
           <div>
             <div className='action-div'>
-              <button className='btn-a' onClick={async () => {actionSet('+')}}>+</button>
-              <button className='btn-a' onClick={async () => {actionSet('-')}}>-</button>
-              <button className='btn-a' onClick={async () => {actionSet('x')}}>x</button>
-              <button className='btn-a' onClick={async () => {actionSet('/')}}>/</button>
-              <button className='btn-a' onClick={async () => (calculate(), setCalculated(true))}>=</button>
+              <button className='btn-a' onClick={async () => (actionSet('+'))}>+</button>
+              <button className='btn-a' onClick={async () => (actionSet('-'))}>-</button>
+              <button className='btn-a' onClick={async () => (actionSet('x'))}>x</button>
+              <button className='btn-a' onClick={async () => (actionSet('/'))}>/</button>
+              <button className='btn-a' onClick={async () => (setCalculated(true))}>=</button>
             </div>
         </div>
         </div>
