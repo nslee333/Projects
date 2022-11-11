@@ -14,7 +14,7 @@ function App() {
 
 
   useEffect(() => {
-    // stateCheck();
+    stateCheck();
     setBtnPress(false);
     displayArray();
     console.log(numberA, numberB, result, "UseEffect numbera, b");
@@ -56,6 +56,9 @@ function App() {
 
     function parseArray(inputArray: string[]) {
       let floatString: string = inputArray.join("");
+      if (inputArray.length === 0) {
+        inputArray.push("0");
+      }
       const result: number = parseFloat(floatString);
       return result;
     }
@@ -89,17 +92,17 @@ function App() {
       }
     }
 
-    function del() {
-      if (result !== 0) {
-        setResult(0);
-      } else if (numberB !== 0) {
+    function deleteValues() {
+      if (numberB !== 0) {
+        setCalculated(false);
+        setAction("");
         setNumberB(0);
-      } else if (numberB === 0) {
-        setNumberA(0);
-      }
-      // setNumberA(0);
-      // setNumberB(0);
-      // setResult(0);
+        setResult(0);
+      } else if (numberA !== 0) {
+        setCalculated(false);
+        setAction("");
+        setNumberA(0)
+      } 
     }
 
     function myComponent() {
@@ -139,7 +142,7 @@ function App() {
             <button className='btn' onClick={async () => (setState("1"), setBtnPress(true))}>1</button>
             <button className='btn' onClick={async () => (setState("."), setBtnPress(true))}>.</button>
             <button className='btn' onClick={async () => (setState("0"), setBtnPress(true))}>0</button>
-            <button className='btn' onClick={async () => {del()}}>␡</button>
+            <button className='btn' onClick={async () => {deleteValues()}}>␡</button>
           </div>
           <div>
             <div className='action-div'>

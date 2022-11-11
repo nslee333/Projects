@@ -1,4 +1,4 @@
-const array: string[] = ["1", ".", "2", "2"];
+const array: string[] = [];
 
 // const floatString: string = "";
 
@@ -10,3 +10,7 @@ const finalNum: number = parseFloat(floatString);
 console.log(array);
 console.log(floatString, "float string");
 console.log(finalNum);
+
+if (array.length === 0) {
+    console.log("blank")
+} 
