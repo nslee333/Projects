@@ -7,6 +7,7 @@
     - Display the history in a window.
 5. Fix background grid imaging.
 6. Add a 'Clear' button to delete all inputs.
+7. Change the way myComponent renders.
 
 
 

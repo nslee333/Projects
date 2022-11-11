@@ -9,12 +9,13 @@ function App() {
   const [result, setResult] = useState(0);
   const [actionUsed, setActionUsed] = useState(false);
   const [calculated, setCalculated] = useState(false);
+  const [inputArray, setInputArray]: string[] = useState([]);
 
   // console.log(calculated, actionUsed);
   // console.log(numberA, numberB);
 
  
-    const inputArray: string[] = [];
+    // const inputArray: string[] = [];
 
     function setState(inputChar: string) {
       console.log(actionUsed, "Action before");
@@ -93,10 +94,6 @@ function App() {
         <div>
           {numberA} {action} {numberB} {'='} {result}
         </div>
-         
-        // ) : (
-        //   <div></div>
-        // )
       );
     }
 
@@ -123,10 +120,10 @@ function App() {
           </div>
           <div>
             <div className='action-div'>
-              <button className='btn-a' onClick={async () => {actionSet('+'); setActionUsed(true); setState("")}}>+</button>
-              <button className='btn-a' onClick={async () => {actionSet('-'); setActionUsed(true); setState("")}}>-</button>
-              <button className='btn-a' onClick={async () => {actionSet('x'); setActionUsed(true); setState("")}}>x</button>
-              <button className='btn-a' onClick={async () => {actionSet('/'); setActionUsed(true); setState("")}}>/</button>
+              <button className='btn-a' onClick={async () => (actionSet('+'), setActionUsed(true), setState(""))}>+</button>
+              <button className='btn-a' onClick={async () => (actionSet('-'), setActionUsed(true), setState(""))}>-</button>
+              <button className='btn-a' onClick={async () => (actionSet('x'), setActionUsed(true), setState(""))}>x</button>
+              <button className='btn-a' onClick={async () => (actionSet('/'), setActionUsed(true), setState(""))}>/</button>
               <button className='btn-a' onClick={async () => (setCalculated(true), calculate())}>=</button>
             </div>
         </div>
