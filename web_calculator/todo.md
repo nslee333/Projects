@@ -8,3 +8,9 @@
 5. Fix background grid imaging.
 6. Add a 'Clear' button to delete all inputs.
 
+
+
+
+setState function:
+
+if 

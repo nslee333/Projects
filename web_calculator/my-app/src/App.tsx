@@ -6,7 +6,6 @@ function App() {
   const [numberA, setNumberA] = useState(0);
   const [numberB, setNumberB] = useState(0);
   const [action, setAction] = useState('');
-  const [decimal, setDecimal] = useState('');
   const [result, setResult] = useState(0);
   const [actionUsed, setActionUsed] = useState(false);
   const [calculated, setCalculated] = useState(false);
@@ -17,26 +16,31 @@ function App() {
 
  
 
-    function setState(inputValue: string ) {
+    function setState(inputValue: string) {
       let inputArray: string[] = [];
+      console.log(inputValue);
 
       if(numberA === 0) {
 
         if (actionUsed === true) {
           const floatNumber = parseFloatArray(inputArray);
           setNumberA(floatNumber);
+          console.log(inputArray);
           inputArray = [];
+          console.log(inputArray);
           
         } else {
           inputArray.push(inputValue);
+          console.log("else");
         }
 
-       } else {
+      } else {
 
         if (calculated === true) {
           const floatNumber = parseFloatArray(inputArray);
           setNumberB(floatNumber);
           inputArray = [];
+
         } else {
           inputArray.push(inputValue);
         }
@@ -49,7 +53,7 @@ function App() {
       for (const element in array) {
         floatString += element;
       }
-      console.log(parseFloat(floatString));
+      console.log(parseFloat(floatString), "parse float string");
       return parseFloat(floatString);
     }
 
@@ -86,6 +90,7 @@ function App() {
     function del() {
       if (numberB !== 0) {
         setNumberB(0);
+        setActionUsed(false);
 
       } else if (numberA !== 0) {
         setNumberA(0);
