@@ -4,6 +4,8 @@ React testing todo:
 1. Add decimal precise library calculations to calculation() function?
     - Decide on this :)
 2. Clear all button
+    - Clear history too?
+    - Commands?
 
 3. History of calculations.
 
@@ -20,5 +22,13 @@ Everytime a calculation is made
     - This might be a bigger design issue D:
     - At calculation() - numberB isn't set.
         - Probably coming from checkState() function.
-        - Might need to redesign how checkState() works - maybe take some notes from React Test? [not sure if that counts because it doesn't have the same functionality]
+        - Might need to redesign how checkState() works - maybe take some notes from React Test? [not sure if that counts because it doesn't have the same functionality.
 
+
+- The issue is coming from the checkState() function, it's only going to set when calculated ==== true,
+    that's why it takes two equals presses.
+
+Possible workaround: 
+    - Set a counter and only push every third submission - 
+        - not sure if I care for this solution.
+    : rethink conditional for checkState

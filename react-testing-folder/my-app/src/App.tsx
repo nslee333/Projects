@@ -13,7 +13,7 @@ function App() {
   const [btnPress, setBtnPress] = useState(false);
   const [historyArray, setHistoryArray] = useState<string[]>([]);
 
-
+  console.log(numberB)
 
   useEffect(() => {
     stateCheck();
@@ -21,8 +21,9 @@ function App() {
     displayArray();
 
     if (calculated === true) {
-      console.log(numberA, numberB, action, "At calculate() call.")
+      // console.log(numberA, numberB, action, "At calculate() call.")
       calculate();
+      stateCheck();
     }
 
   }, [btnPress, calculated, numberA, numberB, action, result]);
@@ -45,6 +46,7 @@ function App() {
       } else if (calculated === true && numberB === 0) {
         const result: number = parseArray(inputArray);
         setNumberB(result);
+        console.log("ELSE IF GOT HERE")
         setInputArray([]);
       }
     }
@@ -86,6 +88,7 @@ function App() {
     // Convert to decimal precise calculations.
 
     function calculate() {
+      console.log(numberA, numberB, "AB at top of calc")
       if (action === '/') {
         const value: number = numberA / numberB;
         setResult(value);
