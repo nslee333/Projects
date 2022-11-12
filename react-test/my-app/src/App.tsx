@@ -6,26 +6,44 @@ import {useState, useEffect} from 'react';
 function App() {
   const [inputArray, setInputArray] = useState<string[]>([]);
   const [numberA, setNumberA] = useState(0);
-  const [numberb, setNumberB] = useState(0);
+  const [numberB, setNumberB] = useState(0);
+  const [result, setResult] = useState(0);
   const [action, setAction] = useState(false);
   const [actionValue, setActionValue] = useState('');
+  const [calculated, setCalculated] = useState(false);
+
+  // console.log(numberA, numberB, "NumberA, NumberB");
+  // console.log(actionValue, calculated, "aV, c")
 
 
   useEffect(() => {
-    process("");
-  }, [action])
+    stateCheck();
+    console.log(numberA, numberB, inputArray);
+    setAction(false);
+  }, [action, actionValue, calculated])
 
   
   function process(inputNumber: string) {
-    console.log(inputNumber);
-    if (action === true) {
+    stateCheck();
+      if (actionValue === "" || calculated === false) {
+        inputArray.push(inputNumber);
+      }
+  }
+
+  function stateCheck() {
+    console.log(actionValue, calculated, "aV, c @ statecheck")
+
+    if (actionValue !== "" && numberA === 0) {
       const result: number = parseArray(inputArray);
       setNumberA(result);
-      console.log(result);
-    } else {
-      inputArray.push(inputNumber);
-      console.log(inputNumber);
+      setInputArray([]);
+
+    } else if (actionValue !== "" && calculated === true) {
+      const result: number = parseArray(inputArray);
+      setNumberB(result);
+      setInputArray([]);
     }
+
   }
 
   function parseArray(array: string[]) {
@@ -35,19 +53,41 @@ function App() {
   }
 
   function del() {
-    const floatString: string = `${numberA}`;
+    if (result !== 0) {
+      setResult(0);
+
+    } else if (numberB !== 0) {
+      const result = deleteOneChar(numberB);
+      setNumberB(result);
+      
+    } else if (numberA !== 0) {
+      setActionValue("");
+      const result = deleteOneChar(numberA);
+      setNumberA(result);
+    }
+  }
+
+  function deleteOneChar(inputNumber: number) {
+    const floatString: string = `${inputNumber}`;
     const splitArray: string[] = floatString.split("");
-    console.log(splitArray);
 
     splitArray.pop();
     if (splitArray.length === 0) {
       splitArray.push("0");
     }
+
     const arrayString: string = splitArray.join("");
     const result: number = parseFloat(arrayString);
-    
-    setNumberA(result);
 
+    return result;
+  }
+
+  function clear() {
+    setResult(0);
+    setNumberB(0);
+    setNumberA(0);
+    setActionValue("");
+    setCalculated(false);
   }
 
   function setActionChar(inputValue: string) {
@@ -55,7 +95,25 @@ function App() {
   }
 
   function calculate() {
+    if (actionValue === '+') {
+      const result: number = numberA + numberB;
+      setResult(result);
 
+    } else if (actionValue === '-') {
+      const result: number = numberA - numberB;
+      setResult(result);
+
+    } else if (actionValue === 'x') {
+      const result: number = numberA * numberB;
+      setResult(result);
+
+    } else if (actionValue === '/') {
+      const result: number = numberA / numberB;
+      setResult(result);
+    }
+
+    console.log(result);
+    setCalculated(true);
   }
 
 
@@ -63,7 +121,12 @@ function App() {
     return (
       <div>
         {numberA}
-        {inputArray}
+        |
+        {actionValue}
+        |
+        {numberB}
+        |
+        {result}
       </div>
     );
   };
@@ -89,8 +152,9 @@ function App() {
       <button className='btn' onClick={async () => (setActionChar("/"))}>/</button>
       <button className='btn' onClick={async () => (setActionChar("+"))}>+</button>
       <button className='btn' onClick={async () => (setActionChar("-"))}>-</button>
-      <button className='btn' onClick={async () => (setAction(true))}>=</button>
+      <button className='btn' onClick={async () => (calculate())}>=</button>
       <button className='btn' onClick={async () => (del())}>delete</button>
+      <button className='btn' onClick={async () => (clear())}>clear all</button>
     </div>
       <div>
         {myComponent()}
