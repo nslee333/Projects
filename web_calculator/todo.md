@@ -19,8 +19,11 @@ Bugs:
 
 [current] [task]
 4. History of calculations.
-    - Display the history in a window.
-    - Current functionality is working, need to work on displaying the current history.
+    - Display the history above the input window :)
+    - only the latest three entries.
+
+Need to get the entry to post as soon as it is calculated.
+
 
 
 

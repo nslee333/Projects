@@ -156,9 +156,6 @@ function App() {
     }
 
     function displayHistory() {
-      // historyArray.push("1.2 x 5 = 6");
-      // historyArray.push("1.2 x 5 = 6");
-      // historyArray.push("1.2 x 5 = 6");
         return (
           <div>
             {historyArray.map((array, index) => <div className="displayHistory" key={index}>{array}</div>)}

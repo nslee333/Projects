@@ -5,10 +5,16 @@ body {
   background-image: URL('CroppedCopy.jpeg');
 }
 
-/* .overall {
-  top: 15rem;
-  border: 15px solid red;
-} */
+.displayHistory {
+  color: #d0b79d;
+  font-size: 30px;
+}
+
+.history {
+  position: fixed;
+  top: 3rem;
+  left: 35.5rem;
+}
 
 button {
   background-color: #384a5d;

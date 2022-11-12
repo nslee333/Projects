@@ -109,10 +109,10 @@ function App() {
     }
 
     function addToHistory() {
-      const entry: string = `| ${numberA} ${action} ${numberB} = ${result} |`
+      const entry: string = `${numberA} ${action} ${numberB} = ${result}`
 
       if (result !== 0 && (historyArray[historyArray.length - 1] !== entry && numberA != result)) {
-        historyArray.push(entry);
+        historyArray.unshift(entry);
       }
     }
 
@@ -157,9 +157,32 @@ function App() {
 
     function displayHistory() {
       return (
-        <div>
-          {historyArray}
-        </div>
+        historyArray[2] !== "" ? 
+        (
+          <div className='history'>
+            { historyArray[2] } 
+            <br/>
+            { historyArray[1] }
+            <br/>
+            { historyArray[0] }
+           </div>
+        ) 
+        : historyArray[1] !== "" ? 
+        (
+          <div className='history'>
+            { historyArray[1] }
+            <br/>
+            { historyArray[0] }
+          </div>
+        ) 
+        : historyArray[0] !== "" ? 
+        (
+          <div className='history'>
+            { historyArray[0] }
+          </div>
+        ):(
+          <div></div>
+        )
       );
     }
 
@@ -191,11 +214,11 @@ function App() {
 
       <div className='App'>
         <div className='overall'>
+          <div className='displayHistory'>
+            {displayHistory()}
+          </div>
           <div className='input-div'>
             {myComponent()}
-          </div>
-          <div>
-            {displayHistory()}
           </div>
           <div className='btn-div'>
             <button className='btn' onClick={async () => (setState("9"), setBtnPress(true))}>9</button>
