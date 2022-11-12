@@ -13,6 +13,7 @@ function App() {
   const [btnPress, setBtnPress] = useState(false);
 
 
+
   useEffect(() => {
     stateCheck();
     setBtnPress(false);
@@ -23,8 +24,6 @@ function App() {
     }
 
   }, [btnPress, calculated, numberA, numberB, action, result]);
-
-
 
 
   function displayArray() {
@@ -95,20 +94,26 @@ function App() {
     }
 
     function del() {
-      if (result !== 0) {
+      if (numberA == 0 && numberB == 0) {
+        inputArray.pop();
+        displayArray();
+
+      } else {
+        if (result !== 0) {
         setCalculated(false);
         setResult(0);
   
-      } else if (numberB !== 0) {
-        const result = deleteOneChar(numberB);
-        setNumberB(result);
-        
-      } else if (numberB === 0 && action !== "") {
-        setAction("");
+        } else if (numberB !== 0) {
+          const result = deleteOneChar(numberB);
+          setNumberB(result);
 
-      } else if (numberA !== 0) {
-        const result = deleteOneChar(numberA);
-        setNumberA(result);
+        } else if (numberB === 0 && action !== "") {
+          setAction("");
+
+        } else if (numberA !== 0) {
+          const result = deleteOneChar(numberA);
+          setNumberA(result);
+        }
       }
     }
   
