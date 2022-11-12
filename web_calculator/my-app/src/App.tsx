@@ -11,7 +11,7 @@ function App() {
   const [inputArray, setInputArray] = useState<string[]>([]);
   const [displayNumber, setDisplayNumber] = useState(0);
   const [btnPress, setBtnPress] = useState(false);
-
+  const [historyArray, setHistoryArray] = useState<string[]>([]);
 
 
   useEffect(() => {
@@ -20,9 +20,14 @@ function App() {
     displayArray();
 
     if (calculated === true) {
+      // console.log(numberA, numberB, action, "At calculate() call.")
       calculate();
+      stateCheck();
     }
 
+      // Add a conditional for only adding when wanted?
+      addToHistory();
+  
   }, [btnPress, calculated, numberA, numberB, action, result]);
 
 
@@ -34,6 +39,7 @@ function App() {
 
     function stateCheck() {
       displayArray();
+
       if (action !== "" && numberA === 0) {
         const result: number = parseArray(inputArray);
         setNumberA(result);
@@ -48,6 +54,7 @@ function App() {
 
     function setState(inputChar: string) {
       stateCheck();
+
       if (action === "" || calculated == false) {
         inputArray.push(inputChar);
       }
@@ -57,6 +64,7 @@ function App() {
 
     function parseArray(inputArray: string[]) {
       let floatString: string = inputArray.join("");
+
       if (inputArray.length === 0) {
         inputArray.push("0");
       }
@@ -65,11 +73,10 @@ function App() {
     }
 
 
-
-
     function actionSet(action: string) {
       if (result === 0) {
         setAction(action);
+
       } else if (result !== 0) {
         setNumberA(result);
         setAction(action);
@@ -98,6 +105,14 @@ function App() {
         const value: number = numberA + numberB;
         setResult(value);
 
+      }
+    }
+
+    function addToHistory() {
+      const entry: string = `| ${numberA} ${action} ${numberB} = ${result} |`
+
+      if (result !== 0 && (historyArray[historyArray.length - 1] !== entry && numberA != result)) {
+        historyArray.push(entry);
       }
     }
 
@@ -140,6 +155,14 @@ function App() {
       return result;
     }
 
+    function displayHistory() {
+      return (
+        <div>
+          {historyArray}
+        </div>
+      );
+    }
+
 
     
     function myComponent() {
@@ -170,6 +193,9 @@ function App() {
         <div className='overall'>
           <div className='input-div'>
             {myComponent()}
+          </div>
+          <div>
+            {displayHistory()}
           </div>
           <div className='btn-div'>
             <button className='btn' onClick={async () => (setState("9"), setBtnPress(true))}>9</button>

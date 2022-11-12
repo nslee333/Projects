@@ -13,7 +13,6 @@ function App() {
   const [btnPress, setBtnPress] = useState(false);
   const [historyArray, setHistoryArray] = useState<string[]>([]);
 
-  console.log(numberB)
 
   useEffect(() => {
     stateCheck();
@@ -26,6 +25,9 @@ function App() {
       stateCheck();
     }
 
+      // Add a conditional for only adding when wanted?
+      addToHistory();
+  
   }, [btnPress, calculated, numberA, numberB, action, result]);
 
 
@@ -46,7 +48,6 @@ function App() {
       } else if (calculated === true && numberB === 0) {
         const result: number = parseArray(inputArray);
         setNumberB(result);
-        console.log("ELSE IF GOT HERE")
         setInputArray([]);
       }
     }
@@ -88,7 +89,6 @@ function App() {
     // Convert to decimal precise calculations.
 
     function calculate() {
-      console.log(numberA, numberB, "AB at top of calc")
       if (action === '/') {
         const value: number = numberA / numberB;
         setResult(value);
@@ -106,15 +106,14 @@ function App() {
         setResult(value);
 
       }
-      setCalculated(false);
-      addToHistory();
     }
 
     function addToHistory() {
-      const entry: string = `${numberA} ${action} ${numberB} = ${result}`
-      historyArray.push(entry);
-      console.log(entry);
-      console.log(historyArray);
+      const entry: string = `| ${numberA} ${action} ${numberB} = ${result} |`
+
+      if (result !== 0 && (historyArray[historyArray.length - 1] !== entry && numberA != result)) {
+        historyArray.push(entry);
+      }
     }
 
     function del() {
@@ -156,6 +155,14 @@ function App() {
       return result;
     }
 
+    function displayHistory() {
+      return (
+        <div>
+          {historyArray}
+        </div>
+      );
+    }
+
 
     
     function myComponent() {
@@ -186,6 +193,9 @@ function App() {
         <div className='overall'>
           <div className='input-div'>
             {myComponent()}
+          </div>
+          <div>
+            {displayHistory()}
           </div>
           <div className='btn-div'>
             <button className='btn' onClick={async () => (setState("9"), setBtnPress(true))}>9</button>
