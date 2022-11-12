@@ -109,7 +109,7 @@ function App() {
     }
 
     function addToHistory() {
-      const entry: string = `| ${numberA} ${action} ${numberB} = ${result} |`
+      const entry: string = `${numberA} ${action} ${numberB} = ${result}`
 
       if (result !== 0 && (historyArray[historyArray.length - 1] !== entry && numberA != result)) {
         historyArray.push(entry);
@@ -156,12 +156,16 @@ function App() {
     }
 
     function displayHistory() {
-      return (
-        <div>
-          {historyArray}
-        </div>
-      );
-    }
+      // historyArray.push("1.2 x 5 = 6");
+      // historyArray.push("1.2 x 5 = 6");
+      // historyArray.push("1.2 x 5 = 6");
+        return (
+          <div>
+            {historyArray.map((array, index) => <div className="displayHistory" key={index}>{array}</div>)}
+          </div>
+        );
+      }
+      
 
 
     
@@ -194,7 +198,7 @@ function App() {
           <div className='input-div'>
             {myComponent()}
           </div>
-          <div>
+          <div className='displayHistory'>
             {displayHistory()}
           </div>
           <div className='btn-div'>

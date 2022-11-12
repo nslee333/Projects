@@ -11,10 +11,6 @@ React testing todo:
 
 Current task: - history of calculations
 
-Everytime a calculation is made
-    - calculation is converted into a string.
-    - The string is then pushed to a history array, then we display it to the user.
-
-Need to submit an entry if 
-
-&& historyArray[historyArray.length - 1] !== entry
+    display history properly.
+    - Display the last three calculations.
+    
