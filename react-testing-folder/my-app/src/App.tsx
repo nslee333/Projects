@@ -11,6 +11,7 @@ function App() {
   const [inputArray, setInputArray] = useState<string[]>([]);
   const [displayNumber, setDisplayNumber] = useState(0);
   const [btnPress, setBtnPress] = useState(false);
+  const [historyArray, setHistoryArray] = useState<string[]>([]);
 
 
 
@@ -20,6 +21,7 @@ function App() {
     displayArray();
 
     if (calculated === true) {
+      console.log(numberA, numberB, action, "At calculate() call.")
       calculate();
     }
 
@@ -34,6 +36,7 @@ function App() {
 
     function stateCheck() {
       displayArray();
+
       if (action !== "" && numberA === 0) {
         const result: number = parseArray(inputArray);
         setNumberA(result);
@@ -48,6 +51,7 @@ function App() {
 
     function setState(inputChar: string) {
       stateCheck();
+
       if (action === "" || calculated == false) {
         inputArray.push(inputChar);
       }
@@ -57,6 +61,7 @@ function App() {
 
     function parseArray(inputArray: string[]) {
       let floatString: string = inputArray.join("");
+
       if (inputArray.length === 0) {
         inputArray.push("0");
       }
@@ -68,6 +73,7 @@ function App() {
     function actionSet(action: string) {
       if (result === 0) {
         setAction(action);
+
       } else if (result !== 0) {
         setNumberA(result);
         setAction(action);
@@ -97,6 +103,15 @@ function App() {
         setResult(value);
 
       }
+      setCalculated(false);
+      addToHistory();
+    }
+
+    function addToHistory() {
+      const entry: string = `${numberA} ${action} ${numberB} = ${result}`
+      historyArray.push(entry);
+      console.log(entry);
+      console.log(historyArray);
     }
 
     function del() {
