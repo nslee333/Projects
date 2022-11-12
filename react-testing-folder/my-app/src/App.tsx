@@ -65,10 +65,16 @@ function App() {
     }
 
 
-
-
     function actionSet(action: string) {
-      setAction(action);
+      if (result === 0) {
+        setAction(action);
+      } else if (result !== 0) {
+        setNumberA(result);
+        setAction(action);
+        setNumberB(0);
+        setResult(0);
+        setCalculated(false);
+      }
     }
 
     // Convert to decimal precise calculations.

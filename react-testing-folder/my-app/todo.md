@@ -7,3 +7,9 @@ React testing todo:
 
 Current task:
 - Chaining together calculations:
+
+
+When * is hit after equals:
+    result is set as numberA then waits for input for action and number 2.
+
+    
