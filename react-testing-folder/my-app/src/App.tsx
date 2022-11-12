@@ -13,14 +13,17 @@ function App() {
   const [btnPress, setBtnPress] = useState(false);
 
 
+
   useEffect(() => {
     stateCheck();
     setBtnPress(false);
     displayArray();
 
+    if (calculated === true) {
+      calculate();
+    }
+
   }, [btnPress, calculated, numberA, numberB, action, result]);
-
-
 
 
   function displayArray() {
@@ -41,7 +44,6 @@ function App() {
         setNumberB(result);
         setInputArray([]);
       }
-      calculate();
     }
 
     function setState(inputChar: string) {
@@ -91,19 +93,47 @@ function App() {
       }
     }
 
-    function deleteValues() {
-      if (numberB !== 0) {
+    function del() {
+      if (numberA == 0 && numberB == 0) {
+        inputArray.pop();
+        displayArray();
+
+      } else {
+        if (result !== 0) {
         setCalculated(false);
-        setAction("");
-        setNumberB(0);
         setResult(0);
-      } else if (numberA !== 0) {
-        setCalculated(false);
-        setAction("");
-        setNumberA(0)
-      } 
+  
+        } else if (numberB !== 0) {
+          const result = deleteOneChar(numberB);
+          setNumberB(result);
+
+        } else if (numberB === 0 && action !== "") {
+          setAction("");
+
+        } else if (numberA !== 0) {
+          const result = deleteOneChar(numberA);
+          setNumberA(result);
+        }
+      }
+    }
+  
+    function deleteOneChar(inputNumber: number) {
+      const floatString: string = `${inputNumber}`;
+      const splitArray: string[] = floatString.split("");
+  
+      splitArray.pop();
+      if (splitArray.length === 0) {
+        splitArray.push("0");
+      }
+  
+      const arrayString: string = splitArray.join("");
+      const result: number = parseFloat(arrayString);
+  
+      return result;
     }
 
+
+    
     function myComponent() {
       return (
         numberA === 0 ? (
@@ -113,6 +143,10 @@ function App() {
         ) : numberB === 0 ? (
           <div>
             {numberA} {action || ""} {numberB || displayNumber || ""} 
+          </div>
+        ) : result === 0 ? (
+          <div>
+            {numberA} {action} {numberB}
           </div>
         ) : (
           <div>
@@ -141,7 +175,7 @@ function App() {
             <button className='btn' onClick={async () => (setState("1"), setBtnPress(true))}>1</button>
             <button className='btn' onClick={async () => (setState("."), setBtnPress(true))}>.</button>
             <button className='btn' onClick={async () => (setState("0"), setBtnPress(true))}>0</button>
-            <button className='btn' onClick={async () => {deleteValues()}}>␡</button>
+            <button className='btn' onClick={async () => {del()}}>␡</button>
           </div>
           <div>
             <div className='action-div'>
