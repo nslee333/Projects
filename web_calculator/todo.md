@@ -15,7 +15,7 @@ Bugs:
 
 
 [current] [task]
-- Working on trying to solve action button position issue.
+- finishing last styling things.
 
 
 

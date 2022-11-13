@@ -35,8 +35,11 @@ button:active {
 
 .history-div {
   position: fixed;
+  display: grid;
   top: 3rem;
-  left: 35.5rem;
+  bottom: 9rem;
+  left: 25rem;
+  right: 31rem;
 }
 
 .number-btn-div {

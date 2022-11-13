@@ -26,6 +26,7 @@ function App() {
 
       // Add a conditional for only adding when wanted?
       addToHistory();
+      historyArray.push("4+4=L)")
   
   }, [btnPress, calculated, numberA, numberB, action, result]);
 
