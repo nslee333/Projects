@@ -24,8 +24,8 @@ function App() {
       stateCheck();
     }
 
-      addToHistory();
-  
+    addToHistory();
+
   }, [btnPress, calculated, numberA, numberB, action, result]);
 
 
@@ -44,8 +44,6 @@ function App() {
     setAction("");
     setDisplayNumber(0)
   }
-
-  console.log(numberA, numberB)
 
     function stateCheck() {
       displayArray();
@@ -83,7 +81,6 @@ function App() {
       return result;
     }
 
-
     function actionSet(action: string) {
       if (result === 0) {
         setAction(action);
@@ -102,7 +99,6 @@ function App() {
         setCalculated(true);
       }
     }
-
 
     function calculate() {
         if (action === '/') {
@@ -137,7 +133,6 @@ function App() {
     }
 
     function del() {
-
       if (numberA == 0 && numberB == 0) {
         inputArray.pop();
         displayArray();
@@ -163,7 +158,6 @@ function App() {
           setAction("");
           const result = deleteOneChar(numberA);
           setNumberA(result);
-          // setDisplayNumber(0);
         }
       }
     }
@@ -214,8 +208,6 @@ function App() {
       );
     }
 
-
-    
     function displayCalculation() {
       return (
         numberA === 0 ? (
