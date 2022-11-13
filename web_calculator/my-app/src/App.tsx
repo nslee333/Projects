@@ -137,7 +137,6 @@ function App() {
     }
 
     function del() {
-      console.log(displayNumber);
 
       if (numberA == 0 && numberB == 0) {
         inputArray.pop();
@@ -153,12 +152,13 @@ function App() {
           const result = deleteOneChar(numberB);
           setNumberB(result);
 
+        } else if (numberA !== 0 && displayNumber !== 0) {
+          inputArray.pop();
+          displayArray();
+          
         } else if (numberB === 0 && action !== "") {
           setAction("");
-
-        } else if (numberA !== 0 && displayNumber !== 0) {
-          setDisplayNumber(0);
-
+        
         } else if (numberA !== 0) {
           setAction("");
           const result = deleteOneChar(numberA);

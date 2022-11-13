@@ -4,18 +4,6 @@
     - 15 digits
 
 
-Bugs:
-
-- [bug] - when half way through deleting a number, and try to add a number, it will sustain that added number after you delete the former number, and all other numbers.
-
-- [bug] - Number -> equals === weird display shit, maybe only if number A and numberB have values do you allow it to calculate? 
-
-
-
-
-
-
-
 
 
 
