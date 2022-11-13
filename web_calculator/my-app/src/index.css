@@ -53,11 +53,10 @@ button:active {
   width: 35%;
   height: 250px;
   top: 17rem;
-  left: 35rem;
+  left: 25rem;
   /* border: 1px solid purple; */
 
 }
-
 
 .btn {
   font-family: consolas;
@@ -67,10 +66,13 @@ button:active {
 }
 
 .btn-a {
+  position:relative;
   height: 40px;
   width: 95px;
   font-size: 25px;
   color: #d0b79d;
+  left: 50%;
+  top: 50%;
 }
 
 .input-div {

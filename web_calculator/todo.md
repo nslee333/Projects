@@ -1,5 +1,4 @@
 1. convert calculate() to using decimal precise library.
-8. Add styling that makes it obvious that input is happening.
 9. clear all button.
 10. [fix] - need to make the position of the buttons absolute.
 
@@ -15,6 +14,7 @@ Bugs:
 
 
 [current] [task]
+- Working on trying to solve action button position issue.
 
 
 
