@@ -98,13 +98,10 @@ function App() {
     }
 
     function evalCalculate() {
-      stateCheck();
-      console.log(numberA, numberB)
       if (numberA !== 0 && displayNumber !== 0) {
         setCalculated(true);
       }
     }
-
 
 
     function calculate() {
