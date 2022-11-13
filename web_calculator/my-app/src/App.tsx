@@ -95,24 +95,28 @@ function App() {
       }
     }
 
-    // Convert to decimal precise calculations.
+
 
     function calculate() {
       if (action === '/') {
         const value: number = numberA / numberB;
-        setResult(value);
+        const roundedValue: number = parseFloat(value.toFixed(15));
+        setResult(roundedValue);
 
       } else if (action === '-') {
         const value: number = numberA - numberB;
-        setResult(value);
+        const roundedValue: number = parseFloat(value.toFixed(15));
+        setResult(roundedValue);
 
       } else if (action === 'x') {
         const value: number = numberA * numberB;
-        setResult(value);
+        const roundedValue: number = parseFloat(value.toFixed(15));
+        setResult(roundedValue);
 
       } else if (action === '+') {
         const value: number = numberA + numberB;
-        setResult(value);
+        const roundedValue: number = parseFloat(value.toFixed(15));
+        setResult(roundedValue);
 
       }
     }

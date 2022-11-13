@@ -1,16 +1,4 @@
-const array: string[] = [];
-
-// const floatString: string = "";
-
-const floatString: string = array.join("");
-
-const finalNum: number = parseFloat(floatString);
-
-// console.log(arrayString);
-console.log(array);
-console.log(floatString, "float string");
-console.log(finalNum);
-
-if (array.length === 0) {
-    console.log("blank")
-} 
+const number = 3.333333333333333333333;
+const rounded = number.toFixed(15);
+console.log(rounded);
+console.log(number)
