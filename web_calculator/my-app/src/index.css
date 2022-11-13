@@ -36,6 +36,11 @@ button:hover {
   color: #384a5d;
 }
 
+button:active {
+  background-color: #d0b79d8d;
+  transform: translateY(4px);
+}
+
 
 .btn-div {
   position: fixed; 
