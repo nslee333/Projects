@@ -131,11 +131,14 @@ function App() {
     }
 
     function del() {
+      console.log(displayNumber);
+
       if (numberA == 0 && numberB == 0) {
         inputArray.pop();
         displayArray();
 
       } else {
+
         if (result !== 0) {
         setCalculated(false);
         setResult(0);
@@ -147,9 +150,14 @@ function App() {
         } else if (numberB === 0 && action !== "") {
           setAction("");
 
+        } else if (numberA !== 0 && displayNumber !== 0) {
+          setDisplayNumber(0);
+          
         } else if (numberA !== 0) {
+          setAction("");
           const result = deleteOneChar(numberA);
           setNumberA(result);
+          // setDisplayNumber(0);
         }
       }
     }

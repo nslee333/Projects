@@ -10,12 +10,6 @@ Bugs:
 
 - [bug] - Number -> equals === weird display shit, maybe only if number A and numberB have values do you allow it to calculate? 
 
-- [bug] - calculation bug
-    - When making a big calculation, it wraps under the number buttons.
-
-- [bug] - Fix console error.
-
-
 
 
 
