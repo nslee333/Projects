@@ -8,12 +8,6 @@ body {
   background-size: cover;
 }
 
-/* input {
-  background-color: #384a5d;
-  color: #d0b79d;
-  font-family: consolas;
-} */
-
 button {
   background-color: #384a5d;
 }
@@ -36,7 +30,7 @@ button:active {
 .history-div {
   position: fixed;
   display: grid;
-  top: 3rem;
+  top: 10rem;
   bottom: 9rem;
   left: 25rem;
   right: 31rem;
@@ -69,8 +63,10 @@ button:active {
 
 .calculation-div {
   position: fixed;
-  top: 12rem;
+  top: 20rem;
+  bottom: 13rem;
   left: 25rem;
+  right: 25rem;
   font-size: 50px;
   color: #d0b79d;
 }
@@ -84,7 +80,7 @@ button:active {
   "."
   ".";
   width: 30px;
-  height: 250px;
+  height: 245.5px;
   top: 25.3rem;
   right: 22rem;
   left: 63rem;
@@ -92,7 +88,7 @@ button:active {
 }
 
 .action-btn {
-  height: 40px;
+  height: 35px;
   width: 95px;
   font-size: 25px;
   color: #d0b79d;

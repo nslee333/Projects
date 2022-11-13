@@ -26,7 +26,6 @@ function App() {
 
       // Add a conditional for only adding when wanted?
       addToHistory();
-      historyArray.push("4+4=L)")
   
   }, [btnPress, calculated, numberA, numberB, action, result]);
 
@@ -36,8 +35,19 @@ function App() {
     setDisplayNumber(value);
   }
 
+  function clearAll() {
+    setNumberA(0);
+    setNumberB(0);
+    setResult(0);
+    setInputArray([]);
+    setHistoryArray([]);
+    setCalculated(false);
+    setAction("");
+  }
+
 
     function stateCheck() {
+      console.log(numberA, numberB)
       displayArray();
 
       if (action !== "" && numberA === 0) {
@@ -53,6 +63,7 @@ function App() {
     }
 
     function setState(inputChar: string) {
+      console.log(inputChar);
       stateCheck();
 
       if (action === "" || calculated == false) {
@@ -241,6 +252,7 @@ function App() {
               <button className='action-btn' onClick={async () => (actionSet('x'))}>x</button>
               <button className='action-btn' onClick={async () => (actionSet('/'))}>/</button>
               <button className='action-btn' onClick={async () => (setCalculated(true))}>=</button>
+              <button className='action-btn' onClick={async () => (clearAll())}>Clear</button>
             </div>
         </div>
         </div>

@@ -1,7 +1,7 @@
 1. convert calculate() to using decimal precise library.
 9. clear all button.
-10. [fix] - need to make the position of the buttons absolute.
 11. Re-add footer element after completion.
+12. Go through and clean up code one last time.
 
 
 
@@ -15,8 +15,8 @@ Bugs:
 
 
 [current] [task]
-- finishing last styling things.
-
+- Working on adding clear all button.
+    - Got bug fixed, now working on styling.
 
 
 
