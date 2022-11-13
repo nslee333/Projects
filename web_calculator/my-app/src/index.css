@@ -2,7 +2,12 @@ body {
   display: grid;
   margin: 0;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
-  background-image: URL('CroppedCopy.jpeg');
+  background: url(CroppedCopy.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 }
 
 .displayHistory {

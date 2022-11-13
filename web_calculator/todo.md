@@ -1,7 +1,4 @@
 1. convert calculate() to using decimal precise library.
-4. History of calculations.
-    - Display the history in a window.
-5. Fix background grid imaging.
 8. Add styling that makes it obvious that input is happening.
 9. clear all button.
 10. [fix] - need to make the position of the buttons absolute.
@@ -18,11 +15,7 @@ Bugs:
 
 
 [current] [task]
-4. History of calculations.
-    - Display the history above the input window :)
-    - only the latest three entries.
 
-Need to get the entry to post as soon as it is calculated.
 
 
 
