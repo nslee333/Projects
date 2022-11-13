@@ -10,17 +10,6 @@ body {
 
 }
 
-.displayHistory {
-  color: #d0b79d;
-  font-size: 30px;
-}
-
-.history {
-  position: fixed;
-  top: 3rem;
-  left: 35.5rem;
-}
-
 button {
   background-color: #384a5d;
 }
@@ -41,6 +30,16 @@ button:active {
   transform: translateY(4px);
 }
 
+.displayHistory {
+  color: #d0b79d;
+  font-size: 30px;
+}
+
+.history {
+  position: fixed;
+  top: 3rem;
+  left: 35.5rem;
+}
 
 .btn-div {
   position: fixed; 
@@ -50,10 +49,12 @@ button:active {
   "D E F"
   "G H I"
   ". . .";
-  width: 35%;
+  width: 600px;
   height: 250px;
-  top: 17rem;
+  top: 25rem;
   left: 25rem;
+  right: 25rem;
+  bottom: 25rem;
   /* border: 1px solid purple; */
 
 }
@@ -65,20 +66,10 @@ button:active {
   color: #d0b79d;
 }
 
-.btn-a {
-  position:relative;
-  height: 40px;
-  width: 95px;
-  font-size: 25px;
-  color: #d0b79d;
-  left: 50%;
-  top: 50%;
-}
-
 .input-div {
   position: fixed;
   top: 12rem;
-  left: 35.3rem;
+  left: 25rem;
   font-size: 50px;
   color: #d0b79d;
 }
@@ -97,10 +88,19 @@ button:active {
   "."
   "."
   ".";
-  width: 10%;
-  height: 15.5rem;
-  top: 17.33rem;
-  right: 30rem;
+  width: 30px;
+  height: 250px;
+  top: 25.3rem;
+  right: 22rem;
+  left: 63rem;
+  bottom: 22rem;
+}
+
+.btn-a {
+  height: 40px;
+  width: 95px;
+  font-size: 25px;
+  color: #d0b79d;
 }
 
 .footer {
