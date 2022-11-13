@@ -20,7 +20,6 @@ function App() {
     displayArray();
 
     if (calculated === true) {
-      // console.log(numberA, numberB, action, "At calculate() call.")
       calculate();
       stateCheck();
     }
