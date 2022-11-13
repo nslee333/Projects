@@ -45,6 +45,7 @@ function App() {
     setDisplayNumber(0)
   }
 
+  console.log(numberA, numberB)
 
     function stateCheck() {
       displayArray();
@@ -54,7 +55,7 @@ function App() {
         setNumberA(result);
         setInputArray([]);
 
-      } else if (calculated === true && numberB === 0) {
+      } else if (calculated == true && numberB === 0) {
         const result: number = parseArray(inputArray);
         setNumberB(result);
         setInputArray([]);
@@ -62,7 +63,6 @@ function App() {
     }
 
     function setState(inputChar: string) {
-      console.log(inputChar);
       stateCheck();
 
       if (action === "" || calculated == false) {
@@ -78,6 +78,7 @@ function App() {
       if (inputArray.length === 0) {
         inputArray.push("0");
       }
+
       const result: number = parseFloat(floatString);
       return result;
     }
@@ -96,30 +97,38 @@ function App() {
       }
     }
 
+    function evalCalculate() {
+      stateCheck();
+      console.log(numberA, numberB)
+      if (numberA !== 0 && displayNumber !== 0) {
+        setCalculated(true);
+      }
+    }
+
 
 
     function calculate() {
-      if (action === '/') {
-        const value: number = numberA / numberB;
-        const roundedValue: number = parseFloat(value.toFixed(15));
-        setResult(roundedValue);
+        if (action === '/') {
+          const value: number = numberA / numberB;
+          const roundedValue: number = parseFloat(value.toFixed(15));
+          setResult(roundedValue);
 
-      } else if (action === '-') {
-        const value: number = numberA - numberB;
-        const roundedValue: number = parseFloat(value.toFixed(15));
-        setResult(roundedValue);
+        } else if (action === '-') {
+          const value: number = numberA - numberB;
+          const roundedValue: number = parseFloat(value.toFixed(15));
+          setResult(roundedValue);
 
-      } else if (action === 'x') {
-        const value: number = numberA * numberB;
-        const roundedValue: number = parseFloat(value.toFixed(15));
-        setResult(roundedValue);
+        } else if (action === 'x') {
+          const value: number = numberA * numberB;
+          const roundedValue: number = parseFloat(value.toFixed(15));
+          setResult(roundedValue);
 
-      } else if (action === '+') {
-        const value: number = numberA + numberB;
-        const roundedValue: number = parseFloat(value.toFixed(15));
-        setResult(roundedValue);
+        } else if (action === '+') {
+          const value: number = numberA + numberB;
+          const roundedValue: number = parseFloat(value.toFixed(15));
+          setResult(roundedValue);
 
-      }
+        }
     }
 
     function addToHistory() {
@@ -152,7 +161,7 @@ function App() {
 
         } else if (numberA !== 0 && displayNumber !== 0) {
           setDisplayNumber(0);
-          
+
         } else if (numberA !== 0) {
           setAction("");
           const result = deleteOneChar(numberA);
@@ -262,7 +271,9 @@ function App() {
               <button className='action-btn' onClick={async () => (actionSet('-'))}>-</button>
               <button className='action-btn' onClick={async () => (actionSet('x'))}>x</button>
               <button className='action-btn' onClick={async () => (actionSet('/'))}>/</button>
-              <button className='action-btn' onClick={async () => (setCalculated(true))}>=</button>
+
+              <button className='action-btn' onClick={async () => (evalCalculate())}>=</button>
+
               <button className='action-btn' onClick={async () => (clearAll())}>Clear</button>
             </div>
           </div>
