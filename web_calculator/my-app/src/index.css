@@ -1,23 +1,21 @@
 body {
   display: grid;
-  margin: 0;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
   background: url(CroppedCopy.jpeg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
 }
 
-button {
-  background-color: #384a5d;
-}
-
-input {
+/* input {
   background-color: #384a5d;
   color: #d0b79d;
   font-family: consolas;
+} */
+
+button {
+  background-color: #384a5d;
 }
 
 button:hover {
@@ -30,18 +28,18 @@ button:active {
   transform: translateY(4px);
 }
 
-.displayHistory {
+.parent-history-div {
   color: #d0b79d;
   font-size: 30px;
 }
 
-.history {
+.history-div {
   position: fixed;
   top: 3rem;
   left: 35.5rem;
 }
 
-.btn-div {
+.number-btn-div {
   position: fixed; 
   display: grid;
   grid-template-areas: 
@@ -59,14 +57,14 @@ button:active {
 
 }
 
-.btn {
+.number-btn {
   font-family: consolas;
   margin: 5px;
   font-size: 30px;
   color: #d0b79d;
 }
 
-.input-div {
+.calculation-div {
   position: fixed;
   top: 12rem;
   left: 25rem;
@@ -74,13 +72,7 @@ button:active {
   color: #d0b79d;
 }
 
-.input {
-  height: 50px;
-  width: 41rem;
-  font-size: 30px;
-}
-
-.action-div {
+.action-btn-div {
   position: fixed;
   display: grid;
   grid-template-areas:
@@ -96,7 +88,7 @@ button:active {
   bottom: 22rem;
 }
 
-.btn-a {
+.action-btn {
   height: 40px;
   width: 95px;
   font-size: 25px;

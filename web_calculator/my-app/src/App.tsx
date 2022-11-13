@@ -158,7 +158,7 @@ function App() {
       return (
         historyArray[2] !== "" ? 
         (
-          <div className='history'>
+          <div className='history-div'>
             { historyArray[2] } 
             <br/>
             { historyArray[1] }
@@ -168,7 +168,7 @@ function App() {
         ) 
         : historyArray[1] !== "" ? 
         (
-          <div className='history'>
+          <div className='history-div'>
             { historyArray[1] }
             <br/>
             { historyArray[0] }
@@ -176,7 +176,7 @@ function App() {
         ) 
         : historyArray[0] !== "" ? 
         (
-          <div className='history'>
+          <div className='history-div'>
             { historyArray[0] }
           </div>
         ):(
@@ -187,7 +187,7 @@ function App() {
 
 
     
-    function myComponent() {
+    function displayCalculation() {
       return (
         numberA === 0 ? (
           <div>
@@ -213,33 +213,33 @@ function App() {
 
       <div className='App'>
         <div className='overall'>
-          <div className='displayHistory'>
+          <div className='parent-history-div'>
             {displayHistory()}
           </div>
-          <div className='input-div'>
-            {myComponent()}
+          <div className='calculation-div'>
+            {displayCalculation()}
           </div>
-          <div className='btn-div'>
-            <button className='btn' onClick={async () => (setState("9"), setBtnPress(true))}>9</button>
-            <button className='btn' onClick={async () => (setState("8"), setBtnPress(true))}>8</button>
-            <button className='btn' onClick={async () => (setState("7"), setBtnPress(true))}>7</button>
-            <button className='btn' onClick={async () => (setState("6"), setBtnPress(true))}>6</button>
-            <button className='btn' onClick={async () => (setState("5"), setBtnPress(true))}>5</button>
-            <button className='btn' onClick={async () => (setState("4"), setBtnPress(true))}>4</button>
-            <button className='btn' onClick={async () => (setState("3"), setBtnPress(true))}>3</button>
-            <button className='btn' onClick={async () => (setState("2"), setBtnPress(true))}>2</button>
-            <button className='btn' onClick={async () => (setState("1"), setBtnPress(true))}>1</button>
-            <button className='btn' onClick={async () => (setState("."), setBtnPress(true))}>.</button>
-            <button className='btn' onClick={async () => (setState("0"), setBtnPress(true))}>0</button>
-            <button className='btn' onClick={async () => {del()}}>␡</button>
+          <div className='number-btn-div'>
+            <button className='number-btn' onClick={async () => (setState("9"), setBtnPress(true))}>9</button>
+            <button className='number-btn' onClick={async () => (setState("8"), setBtnPress(true))}>8</button>
+            <button className='number-btn' onClick={async () => (setState("7"), setBtnPress(true))}>7</button>
+            <button className='number-btn' onClick={async () => (setState("6"), setBtnPress(true))}>6</button>
+            <button className='number-btn' onClick={async () => (setState("5"), setBtnPress(true))}>5</button>
+            <button className='number-btn' onClick={async () => (setState("4"), setBtnPress(true))}>4</button>
+            <button className='number-btn' onClick={async () => (setState("3"), setBtnPress(true))}>3</button>
+            <button className='number-btn' onClick={async () => (setState("2"), setBtnPress(true))}>2</button>
+            <button className='number-btn' onClick={async () => (setState("1"), setBtnPress(true))}>1</button>
+            <button className='number-btn' onClick={async () => (setState("."), setBtnPress(true))}>.</button>
+            <button className='number-btn' onClick={async () => (setState("0"), setBtnPress(true))}>0</button>
+            <button className='number-btn' onClick={async () => {del()}}>␡</button>
           </div>
           <div>
-            <div className='action-div'>
-              <button className='btn-a' onClick={async () => (actionSet('+'))}>+</button>
-              <button className='btn-a' onClick={async () => (actionSet('-'))}>-</button>
-              <button className='btn-a' onClick={async () => (actionSet('x'))}>x</button>
-              <button className='btn-a' onClick={async () => (actionSet('/'))}>/</button>
-              <button className='btn-a' onClick={async () => (setCalculated(true))}>=</button>
+            <div className='action-btn-div'>
+              <button className='action-btn' onClick={async () => (actionSet('+'))}>+</button>
+              <button className='action-btn' onClick={async () => (actionSet('-'))}>-</button>
+              <button className='action-btn' onClick={async () => (actionSet('x'))}>x</button>
+              <button className='action-btn' onClick={async () => (actionSet('/'))}>/</button>
+              <button className='action-btn' onClick={async () => (setCalculated(true))}>=</button>
             </div>
         </div>
         </div>
