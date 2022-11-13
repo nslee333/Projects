@@ -24,7 +24,6 @@ function App() {
       stateCheck();
     }
 
-      // Add a conditional for only adding when wanted?
       addToHistory();
   
   }, [btnPress, calculated, numberA, numberB, action, result]);
@@ -47,7 +46,6 @@ function App() {
 
 
     function stateCheck() {
-      console.log(numberA, numberB)
       displayArray();
 
       if (action !== "" && numberA === 0) {

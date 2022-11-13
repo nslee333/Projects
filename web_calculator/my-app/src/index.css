@@ -72,6 +72,7 @@ button:active {
 }
 
 .action-btn-div {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
   position: fixed;
   display: grid;
   grid-template-areas:

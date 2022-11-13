@@ -2,7 +2,10 @@
 9. clear all button.
 11. Re-add footer element after completion.
 12. Go through and clean up code one last time.
-
+13. Summarize notes in readme.md.
+    - Also note about only being able to support JS's precision
+    - 15 digits
+14. 
 
 
 Bugs:
