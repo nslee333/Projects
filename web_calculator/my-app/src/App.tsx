@@ -42,6 +42,7 @@ function App() {
     setHistoryArray([]);
     setCalculated(false);
     setAction("");
+    setDisplayNumber(0)
   }
 
 
@@ -256,10 +257,9 @@ function App() {
               <button className='action-btn' onClick={async () => (setCalculated(true))}>=</button>
               <button className='action-btn' onClick={async () => (clearAll())}>Clear</button>
             </div>
-        </div>
+          </div>
         </div>
       </div>
-      
   );
 }
 

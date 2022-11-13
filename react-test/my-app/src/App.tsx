@@ -5,25 +5,17 @@ import {useState} from 'react';
 
 function App() {
 
-  const [array, setArray] = useState<string[]>([]);
-
-  array.push("| 2.25 x 6 = ?? |", "| 2.22 x 4242 = ?? |", "||", "||");
-
-  function addToArray() {
-
+  function calc() {
+    const result1: number = 555 * 555;
+    return {result1, result2}
   }
-
-  function iterArray() {
-    
-  }
-
 
 
   function myComponent() {
 
       return (
         <div>
-          {array.map(array => <ul>{array}</ul>)}
+          {}
         </div>
       );
 
