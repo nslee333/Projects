@@ -5,10 +5,6 @@ import {useState} from 'react';
 
 function App() {
 
-  function calc() {
-    const result1: number = 555 * 555;
-    return {result1, result2}
-  }
 
 
   function myComponent() {
