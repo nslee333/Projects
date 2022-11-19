@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+
+
+function chat_window() {
+  return (
+    <div className='chat-window-parent'>
+      Hello World
+      <div className='chat-input-bar'>
+        <div className='chat-input-div'>
+          <input placeholder='send a message' className='chat-input'></input>
+        </div>
+        <button className='chat-btn'>Send</button>
+      </div>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>{chat_window()}</div>
     </div>
   );
 }

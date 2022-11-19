@@ -1,13 +1,43 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white;
+  font-family: 'Segoe UI', Verdana, Geneva, Tahoma, sans-serif
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.chat-window-parent {
+  border: 3px solid white;
+  border-radius: 3px;
+  position: fixed;
+  top: 100px;
+  bottom: 100px;
+  left: 400px;
+  right: 400px;
+  padding: 4px;
+  overflow: hidden;
+
+}
+
+.chat-input-bar {
+  border: 2px solid darkorchid;
+  border-radius: 2px;
+  position: relative;
+  top: 750px;
+  height: 100px;
+}
+
+.chat-input-div {
+  
+}
+
+.chat-input {
+  color: white;
+  background-color: rgba(153, 50, 204, 0.413);
+  position: relative;
+  width: 1090px;
+  height: 50px;
+  font-size: 25px;
+}
+
+.chat-btn {
+  background-color: purple;
 }
