@@ -3,9 +3,6 @@ The main goal is to build applications that I would use in my own life.
 Web application ideas:
 
 
-    Calculator 
-        - Basic calculator application.
-
     Payment application.
         - User signs up.
         - Send, receive payments.
@@ -30,6 +27,9 @@ Web application ideas:
     Twitch stream waiting room:
         - A place where viewers can hang out and chat before the start of a stream.
         - Needs to be cozy.
+        - Host can play music from spotify.
+            - user "zzz" has the aux cord
+            - wordle app
 
     Chat written in rust that I can communicate with someone over a terminal?
 
