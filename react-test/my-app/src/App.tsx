@@ -5,8 +5,6 @@ import {useState} from 'react';
 
 function App() {
 
-
-
   function myComponent() {
 
       return (
