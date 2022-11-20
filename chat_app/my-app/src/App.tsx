@@ -5,6 +5,7 @@ import './App.css';
 function App() {
   const [messagesArray, setMessagesArray] = useState<string[]>([]);
   const [draft, setDraft] = useState<string>('');
+  const [theme, setTheme] = useState(false);
   
   useEffect(() => {
     // document.addEventListener('keydown', detectKeyDown, true);
@@ -30,6 +31,18 @@ function App() {
       </div>
     );
   }
+
+  const toggleTheme = () => {
+    
+  }
+
+  function viewMode() {
+    return (
+      <div>
+        <button className='toggle-theme' onClick={toggleTheme}>ON|Off</button>
+      </div>
+    );
+  }
   
 
 
@@ -38,6 +51,7 @@ function App() {
 
   return (
     <div className="App">
+      <div>{viewMode()}</div>
       <div>{chat_window()}</div>
     </div>
   );
