@@ -4,12 +4,27 @@ import './App.css';
 
 function App() {  
 
+  function chat_window() {
+    return (
+      <div className='chat-window'>
+        <div className='chat-messages-window'>
+
+        </div>
+        <input type='text' placeholder='Enter a message' className='input-message' />
+        <button className='send-btn'>Send</button>
+      </div>
+    );
+  }
+
 
 
 
 
   return (
     <div className="App">
+      <div>
+        {chat_window()}
+      </div>
     </div>
   );
 }
