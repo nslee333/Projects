@@ -8,7 +8,7 @@ function App() {
     return (
       <div className='chat-window'>
         <div className='chat-messages-window'>
-
+          // Display current messages
         </div>
         <input type='text' placeholder='Enter a message' className='input-message' />
         <button className='send-btn'>Send</button>

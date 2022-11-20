@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .input-message {
@@ -16,7 +17,6 @@ body {
   height: 1.7em;
 
   font-size: 25px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .chat-window {
