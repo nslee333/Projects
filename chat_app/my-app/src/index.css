@@ -9,7 +9,6 @@ body {
   border: 3px solid white;
   border-radius: 5px;
   position: fixed;
-  display: grid;
   top: 10rem;
   bottom:10rem;
   left: 45rem;
@@ -21,10 +20,6 @@ body {
   margin: 5px;
   padding: 5px;
 }
-
-/* .chat-input-div {
-  
-} */
 
 .chat-input {
   color: white;

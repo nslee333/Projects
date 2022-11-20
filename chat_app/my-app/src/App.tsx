@@ -10,10 +10,10 @@ function App() {
     // document.addEventListener('keydown', detectKeyDown, true);
   }, [])
 
-  const detectKeyDown = (e: any) => {
-    document.addEventListener('keydown')
-    console.log(e.key)
-  }
+  // const detectKeyDown = (e: any) => {
+  //   document.addEventListener('keydown')
+  //   console.log(e.key)
+  // }
   
   
   
@@ -23,7 +23,7 @@ function App() {
         Hello World
         <div className='chat-input-bar'>
           <div className='chat-input-div'>
-            <input type='text' placeholder='send a message' className='chat-input'  onChange={detectKeyDown}/>
+            <input type='text' placeholder='send a message' className='chat-input' />
           </div>
           {/* <button className='chat-btn' onClick={}>Send</button> */}
         </div>
