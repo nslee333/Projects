@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(49, 45, 45);
+  background-color: rgb(28, 27, 27);
   color: white;
   font-family: 'Segoe UI', Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
@@ -7,57 +7,60 @@ body {
 
 .chat-window-parent {
   border: 3px solid white;
-  border-radius: 3px;
+  border-radius: 5px;
   position: fixed;
-  top: 100px;
-  bottom: 100px;
-  left: 400px;
-  right: 400px;
-  padding: 4px;
-  overflow: hidden;
-  padding: 2px;
+  display: grid;
+  top: 10rem;
+  bottom:10rem;
+  left: 45rem;
+  right: 45rem;
 
 }
 
 .chat-input-bar {
-  border: 2px solid darkorchid;
-  border-radius: 5px;
-  position: relative;
-  top: 750px;
-  height: 100px;
+  margin: 5px;
+  padding: 5px;
 }
 
-.chat-input-div {
+/* .chat-input-div {
   
-}
+} */
 
 .chat-input {
   color: white;
   background-color: rgba(97, 93, 97, 0.802);
-  position: relative;
-  width: 1090px;
-  height: 50px;
-  font-size: 25px;
+
+  position: fixed;
+  top: 72rem;
+  right: 43rem;
+  left: 49rem;
+  width: 53rem;
+  height: 3.5rem;
+
+  font-size: 30px;
   border-radius: 5px;
-  margin: 5px;
+  margin: 10px;
 }
 
 .chat-btn {
   background-color: rgba(174, 73, 174, 0.9);
   color: rgb(220, 218, 218);
-  position: relative;
-  left: 519px;
-  right: 15px;
-  top: 1px;
-  bottom: 1px;
-  height: 30px;
-  width: 60px;
+  position: fixed;
+
+  top: 72.75rem;
+  bottom: 10rem;
+  right: 105rem;
+  left: 105rem;
+  
+  height: 3.5rem;
+  width: 5rem;
   border-radius: 5px;
   border: none;
   font-weight: bold;
+  font-size: 24px;
   font-family: 'Segoe UI';
 }
 
 button:active {
-  transform: translateY(1px);
+  transform: translateY(2px);
 }
