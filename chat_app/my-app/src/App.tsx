@@ -40,13 +40,12 @@ function App() {
           // Display current messages
         </div>
         <form>
-
           <input
             placeholder='Enter a message' 
             className='input-message'
             />
-            <button type='button' name='message' className='send-btn' onClick={async () => (setDraft(), )}>Send</button>
-          </form>
+            <button type='button' name='message' className='send-btn' onClick={async () => ()}>Send</button>
+        </form>
       </div>
     );
   }
