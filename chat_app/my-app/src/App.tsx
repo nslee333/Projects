@@ -14,7 +14,8 @@ function App() {
         // Might need to add a [&& inputValue !== ""] to make sure it only submits a text chat. 
         setDraft(event.target.value);
         
-
+        // const messageInput: HTMLElement | null = document.getElementById('messageInput');
+        // messageInput.value = '';
       }
     }
 
@@ -38,13 +39,14 @@ function App() {
         <div className='chat-messages-window'>
           // Display current messages
         </div>
-        <input 
-          type='text' 
-          id='messageInput'
-          placeholder='Enter a message' 
-          className='input-message'
-          />
-          <button type='button' className='send-btn' onClick={handleSubmit}>Send</button>
+        <form>
+
+          <input
+            placeholder='Enter a message' 
+            className='input-message'
+            />
+            <button type='button' name='message' className='send-btn' onClick={async () => (setDraft(), )}>Send</button>
+          </form>
       </div>
     );
   }

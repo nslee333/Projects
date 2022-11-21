@@ -16,5 +16,5 @@
 
 
 [CT]:
-    - Submit input on enter key press.
+    - delete upon posting.
     
