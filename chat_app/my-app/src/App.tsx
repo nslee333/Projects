@@ -14,7 +14,8 @@ const firebaseConfig = {
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
-const messaging = getMessaging(firebaseApp);
+
+messaging.getToken({vapidKey: "BKqbt2-mQ3U3M13EBJr7TFYIYQTMdzT8I07fS6_eF0LuKfZ1-eUkHN53vIoW2Oq4AXJXU2Iv-NjT6m6W9Qqw1tM"});
 
 function App() {  
   const [draft, setDraft] = useState("");
