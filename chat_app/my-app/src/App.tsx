@@ -9,10 +9,14 @@ function App() {
   console.log(draft, "'Draft'");
 
   useEffect(() => {
+
+
     const keyDownHandler = (event: any) => {
-      if (event.key === 'Enter') {
+      if (event.key === 'Enter' && event.target.value !== "") {
         // Might need to add a [&& inputValue !== ""] to make sure it only submits a text chat. 
+        event.preventDefault();
         setDraft(event.target.value);
+        event.target.value = null;
         
         // const messageInput: HTMLElement | null = document.getElementById('messageInput');
         // messageInput.value = '';
@@ -25,10 +29,15 @@ function App() {
       document.removeEventListener('keydown', keyDownHandler);
     }
 
-  })
+  }, )
 
   const handleSubmit = (event: any) => {
+    event.preventDefault();
+
+    setDraft(event.target.value);
+    console.log(draft)
     
+    event.target.value = null;
   }
 
   
@@ -43,8 +52,9 @@ function App() {
           <input
             placeholder='Enter a message' 
             className='input-message'
+            // onChange={(e) => setDraft(e.target.value)}
             />
-            <button type='button' name='message' className='send-btn' onClick={async () => ()}>Send</button>
+            <button type='submit' className='send-btn' disabled={!draft} onClick={e => handleSubmit(e)}>Send</button>
         </form>
       </div>
     );
