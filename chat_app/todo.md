@@ -8,15 +8,19 @@
 [DONE]:
 1. Deletion and submit upon enter key press.
 2. Fixed window positioning issue.
+3. Added styling on send-btn:press.
 
-[BUGS]:
+
+[BUGS] / [DESIGN]
 
 [bug]: hitting enter when not in focus on input still causes a re-render? It throws an app level log, not sure.
 
 
-[Immediate]:
+
+[Todo]:
 1. Connect chat btn to input.
     - Submit and enter to state.
+2. Design another component for the display current messages?
 
 
 [CT]:
