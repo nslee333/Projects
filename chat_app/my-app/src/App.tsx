@@ -33,9 +33,10 @@ function App() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    console.log(event.target.value, "E.t.v at handleSubmit")
 
     setDraft(event.target.value);
-    console.log(draft)
+    console.log(draft, "Draft at handleSubmit")
     
     event.target.value = null;
   }
@@ -48,13 +49,12 @@ function App() {
         <div className='chat-messages-window'>
           // Display current messages
         </div>
-        <form>
+        <form onSubmit={e => handleSubmit(e)}>
           <input
             placeholder='Enter a message' 
             className='input-message'
-            // onChange={(e) => setDraft(e.target.value)}
             />
-            <button type='submit' className='send-btn' disabled={!draft} onClick={e => handleSubmit(e)}>Send</button>
+            <button type='submit' className='send-btn' onClick={e => handleSubmit(e)}>Send</button>
         </form>
       </div>
     );

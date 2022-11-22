@@ -1,6 +1,3 @@
-
-
-
 [Overall]
 1. User authentication.
     - Login or register.
@@ -12,8 +9,9 @@
 1. Deletion and submit upon enter key press.
 2. Fixed window positioning issue.
 
+[BUGS]:
 
-
+[bug]: hitting enter when not in focus on input still causes a re-render? It throws an app level log, not sure.
 
 
 [Immediate]:
@@ -21,10 +19,13 @@
     - Submit and enter to state.
 
 
-
 [CT]:
-    - delete upon posting.
+    - Connecting send button to input.
+    - deletion upon submission
 
-[bug]:
+    - Notes:
+    - logged at onClick, not throwing log - 
+    handleSubmit isn't successfully setting the draft - and it's also not getting any defined values from event. 
 
-    
+
+
