@@ -1,5 +1,20 @@
 import {useState, useEffect} from 'react';
+import { initializeApp } from 'firebase/app'
+import {getMessaging} from 'firebase/messaging'
 import './App.css';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCwZAhY6B2Q2ayN6Z5MHMsNBjuenw8EqBo",
+  authDomain: "chat-app-b6c23.firebaseapp.com",
+  projectId: "chat-app-b6c23",
+  storageBucket: "chat-app-b6c23.appspot.com",
+  messagingSenderId: "137185804332",
+  appId: "1:137185804332:web:2ebfe6c30a06608069d189",
+  measurementId: "G-455ZKNRCYJ"
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+const messaging = getMessaging(firebaseApp);
 
 function App() {  
   const [draft, setDraft] = useState("");
@@ -28,10 +43,6 @@ function App() {
       </div>
     );
   }
-
-
-
-
 
   return (
     <div className="App">
