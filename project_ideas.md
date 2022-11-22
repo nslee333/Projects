@@ -31,5 +31,3 @@ Web application ideas:
             - user "zzz" has the aux cord
             - wordle app
 
-    Chat written in rust that I can communicate with someone over a terminal?
-
