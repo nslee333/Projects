@@ -33,3 +33,7 @@
 
 
 
+Note: I probably bit off more than I can chew here - so I'm going to stop this project, do a few simplier projects first.
+
+Basically where I stopped is that I was looking in how to model my chat application's database with firebase, and I got overwhelmed, and realised that I needed to go back and make a more basic application before this one.
+
