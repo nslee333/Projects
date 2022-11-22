@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react';
-import { initializeApp } from 'firebase/app'
-import {getMessaging} from 'firebase/messaging'
+import {initializeApp} from 'firebase/app'
+import firebase from "firebase";
+import {getFirestore} from "firebase/firestore";
+
 import './App.css';
 
 const firebaseConfig = {
@@ -14,8 +16,8 @@ const firebaseConfig = {
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore(firebaseApp);
 
-messaging.getToken({vapidKey: "BKqbt2-mQ3U3M13EBJr7TFYIYQTMdzT8I07fS6_eF0LuKfZ1-eUkHN53vIoW2Oq4AXJXU2Iv-NjT6m6W9Qqw1tM"});
 
 function App() {  
   const [draft, setDraft] = useState("");
