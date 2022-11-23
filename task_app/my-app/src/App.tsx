@@ -11,7 +11,12 @@ function App() {
   function taskWindow() {
     return (
       <div>
-        <input type='text' className='taskInput'/>
+        <div>
+          <input type='text' className='taskInput'/>
+        </div>
+        <div className='taskBox'>
+          // Display current tasks here
+        </div>
       </div>
     );
   }

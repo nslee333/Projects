@@ -1,12 +1,35 @@
+* {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
 .taskInput {
   position: absolute;
 
-  left: 1250px;
-  right: 300px;
-  bottom: 50rem;
-  top: 50rem;
+  left: 650px;
+  right: 650px;
+  bottom: 750px;
+  top: 100px;
 
-  width: 30rem;
-  height: 2rem;
+  width: 650px;
+  height: 25px;
+
+  font-size: 25px;
+
+}
+
+.taskBox {
+  position: absolute;
+  border: 2px solid green;
+
+  width: 650px;
+  height: 750px;
+
+  left: 650px;
+  right: 650px;
+  bottom: 700px;
+  top: 150px;
+
 
 }
