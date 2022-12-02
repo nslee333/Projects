@@ -293,7 +293,7 @@ db.sightings.aggregate([
             species_common: "Eastern Bluebird",
             date: {
                     $gt: ISODate("2022-01-01T00:00:00.0Z"),
-                    $lt: ISODate("2023-01-01T00:00:00.0Z"
+                    $lt: ISODate("2023-01-01T00:00:00.0Z")
             }
         }
     },
@@ -349,7 +349,7 @@ db.sightings.aggregate([
 
 db.sightings_2022.findOne();
 
-[Indexing]:
+[Indexing]
 
 db.collection.createIndex({fieldname:1}) // field and sort order - 1 for ascending.
 
@@ -365,5 +365,9 @@ db.accounts.createIndex({account_id:1}, {unique:true});
 
 db.accounts.explain().find({account_id:"MDB829000996"});
 
+db.accounts.createIndex({transfers_complete:1});
 
+db.accounts.explain().find();
+
+db.accounts.explain().find({transfers_complete: {$in: ["TR617907396"]});
 
