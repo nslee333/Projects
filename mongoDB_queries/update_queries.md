@@ -38,5 +38,50 @@ db.podcasts.findAndModify(
     new: true
 );
 
+db.birds.findAndModify({
+    query: { common_name: "Blue Jay"},
+    update: { $inc: { sightings_count: 1 }},
+    new: true,
+});
 
+db.books.updateMany({
+    --filter--{filter field: {operator: value}},
+    --update--{$set: {status: "LEGACY"}},
+    {options}
+});
+
+db.birds.updateMany(
+    {
+        common_name: 
+        {
+            $in: ["Blue Jay", "Grackle"],
+        },
+    },
+    {
+        $set: {
+            last_seen: ISODate("2022-01-01"),
+        },
+    }
+)
+
+db.birds.updateMany(
+  {
+    common_name: {
+      $in: ["Blue Jay", "Grackle"],
+    },
+  },
+  {
+    $set: {
+      last_seen: ISODate("2022-01-01"),
+    },
+  }
+)
+
+db.podcasts.deleteOne({filter}, {options});
+
+db.birds.deleteOne({_id: ObjectId("62cddf53c1d62bc45439bebf")});\
+
+db.birds.deleteMany({
+    sightings_count: {$lte: 10}
+});
 
