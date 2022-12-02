@@ -7,7 +7,8 @@ Basic idea:
 [Design][Bugs]:
 - Authentication?
     - Login with google?
+[design]
 
 
 
-[CT]: 
+[CT]:

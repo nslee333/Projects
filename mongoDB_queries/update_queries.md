@@ -146,11 +146,11 @@ db.sales.countDocuments({});
 
 db.sales.countDocuments({storeLocation: "Denver", couponUsed: true});
 
-db.sales.countDocuments({"items.name": "laptop", "items.price": {$lt: 600}})
+db.sales.countDocuments({"items.name": "laptop", "items.price": {$lt: 600}});
 
-db.sales.countDocuments({items: {$elemMatch: {name: "laptop", price: {$gt: 600}}}})
+db.sales.countDocuments({items: {$elemMatch: {name: "laptop", price: {$gt: 600}}}});
 
-db.sales.countDocuments({ items: { $elemMatch: { name: "laptop", price: { $lt: 600 } } } } )
+db.sales.countDocuments({ items: { $elemMatch: { name: "laptop", price: { $lt: 600 } } } } );
 
 
 db.birds.aggregate(
@@ -165,7 +165,7 @@ db.birds.aggregate(
             ...
         }
     ]
-)
+);
 
 
 
@@ -183,7 +183,7 @@ db.birds.aggregate(
             }
         }   
     ]
-)
+);
 
 db.sightings.aggregate([
   {
@@ -198,4 +198,54 @@ db.sightings.aggregate([
         }
     }
   }
-])
+]);
+
+db.collection.aggregate(
+    [
+        {
+            $sort: {
+                pop: -1
+            },
+            {
+                $limit: 3
+            }
+        }
+    ]
+);
+
+
+
+db.sightings.aggregate(
+    [
+        {
+            $sort: {
+                "location.latitude": -1
+            },
+        },
+        {
+            $limit: 4
+        }
+    ]
+);
+
+db.zips.aggregate([
+    {$project: {
+        state: 1,
+        zip: 1,
+        population: "$pop",
+        _id:0 
+        }
+    }
+]);
+
+db.zips.aggregate([
+    {$set: {
+        pop_2022: {$round: {$multiply: [1.0031, "$pop"]}}
+        }
+    }
+]);
+
+db.zips.aggregate([
+    {$count: "total_zips"}
+]);
+
