@@ -330,5 +330,23 @@ db.zips.aggregate([
     {
         $out: "small_states"
     }
-])
+]);
+
+db.sightings.aggregate([
+    {
+        $match: {
+            date: {
+                $gt: ISODate('2022-01-01T00:00:00.000Z'),
+                $lt: ISODate('2023-01-01T00:00:00.000Z')
+            },
+        }
+    },
+    {
+        $out: "sightings_2022",
+    }
+]);
+
+db.sightings_2022.findOne();
+
+
 
