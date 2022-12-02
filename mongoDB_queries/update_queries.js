@@ -369,5 +369,12 @@ db.accounts.createIndex({transfers_complete:1});
 
 db.accounts.explain().find();
 
-db.accounts.explain().find({transfers_complete: {$in: ["TR617907396"]});
+db.accounts.explain().find({transfers_complete: {$in: ["TR617907396"]}});
+
+db.customers.find({birthdate: {$gte: ISODate("1977-01-01")}, active:true}).sort({birthdate:-1, name:1});
+
+db.customers.explain().find({birthdate: {$gte: ISODate("1977-01-01")}, active:true}).sort({birthdate:-1, name:1});
+
+db.customers.createIndex({active:1, birthdate:-1, name:1}); // Creating a compound index structured like the queries above.
+
 
