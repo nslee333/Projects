@@ -104,3 +104,50 @@ db.inspections.findOne();
 db.inspections.findOne({sector: "Restraunt - 818"}, {business_name:1, result:1, _id:0});
 
 db.inspections.find({result: {$in: ["Pass", "Warning"]}, {date:0, "address.zip":0});
+
+db.sales.find().sort({saleDate:1, storeLocation:1, purchaseMethod:1, _id:1});
+
+db.sales.find({ storeLocation: "Denver", }, { storeLocation: 1, saleDate: 1, purchaseMethod: 1, })
+
+db.sales.find(
+    {
+        "customer.age": {$lt: 30},
+        "customer.satisfaction": {$gt: 3}
+    },
+    {
+        "customer.age":1,
+        "customer.satisfaction":1,
+        storeLocation:1,
+        saleDate:1,
+        _id: 0
+    }
+)
+
+db.sales.find(
+    {
+        storeLocation: {$in: ["Seattle", "New York"]}
+    },
+    {
+        purchaseMethod: 0,
+        customer: 0,
+        couponUsed: 0,
+    }
+);
+
+db.collection.countDocuments({query}, {options});
+
+db.trips.findOne();
+
+db.trips.countDocuments();
+
+db.trips.countDocuments({tripDuration: {$gt: 120}, usertype: "Subscriber"});
+
+db.sales.countDocuments({});
+
+db.sales.countDocuments({storeLocation: "Denver", couponUsed: true});
+
+db.sales.countDocuments({"items.name": "laptop", "items.price": {$lt: 600}})
+
+db.sales.countDocuments({items: {$elemMatch: {name: "laptop", price: {$gt: 600}}}})
+
+db.sales.countDocuments({ items: { $elemMatch: { name: "laptop", price: { $lt: 600 } } } } )
