@@ -152,6 +152,7 @@ db.sales.countDocuments({items: {$elemMatch: {name: "laptop", price: {$gt: 600}}
 
 db.sales.countDocuments({ items: { $elemMatch: { name: "laptop", price: { $lt: 600 } } } } );
 
+[Aggregation]:
 
 db.birds.aggregate(
     [
@@ -347,6 +348,22 @@ db.sightings.aggregate([
 ]);
 
 db.sightings_2022.findOne();
+
+[Indexing]:
+
+db.collection.createIndex({fieldname:1}) // field and sort order - 1 for ascending.
+
+db.collection.createIndex({fieldname:1}, {unique:true})
+
+db.collection.getIndexes()
+
+db.collection.explain().find({field: value})
+
+db.transfers.getIndexes();
+
+db.accounts.createIndex({account_id:1}, {unique:true});
+
+db.accounts.explain().find({account_id:"MDB829000996"});
 
 
 
