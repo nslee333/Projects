@@ -85,3 +85,22 @@ db.birds.deleteMany({
     sightings_count: {$lte: 10}
 });
 
+db.companies.find({category_code: "music"}).sort({name:1});
+
+db.companies.find({category_code: "music"}, {name:1, number_of_employees:1).sort({number_of_employees: -1}}).limit(3);
+
+db.sales.find().sort({saleDate:1});
+
+db.sales.find({
+    couponUsed: true
+}).sort({saleDate:-1});
+
+db.sales.find({
+    "items.name": {$elemMatch: {$eq: ["backpack", "laptop", "printer paper"]}}
+}).sort({saleDate:-1}).limit(3);
+
+db.inspections.findOne();
+
+db.inspections.findOne({sector: "Restraunt - 818"}, {business_name:1, result:1, _id:0});
+
+db.inspections.find({result: {$in: ["Pass", "Warning"]}, {date:0, "address.zip":0});
