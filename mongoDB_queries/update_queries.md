@@ -151,3 +151,51 @@ db.sales.countDocuments({"items.name": "laptop", "items.price": {$lt: 600}})
 db.sales.countDocuments({items: {$elemMatch: {name: "laptop", price: {$gt: 600}}}})
 
 db.sales.countDocuments({ items: { $elemMatch: { name: "laptop", price: { $lt: 600 } } } } )
+
+
+db.birds.aggregate(
+    [
+        {
+            <stage1>
+        },
+        {
+            <stage2>
+        },
+        {
+            ...
+        }
+    ]
+)
+
+
+
+db.birds.aggregate(
+    [
+        {
+            $match: {species_common: "Eastern Bluebird"}
+        },
+        {
+            $group: {
+                _id: "$location.coordinates",
+                number_of_sightings: {
+                    $count: {}
+                }
+            }
+        }   
+    ]
+)
+
+db.sightings.aggregate([
+  {
+    $match: {
+        species_common: 'Eastern Bluebird'
+    }
+  }, {
+    $group: {
+        _id: '$location.coordinates',
+        number_of_sightings: {
+            $count: {}
+        }
+    }
+  }
+])
