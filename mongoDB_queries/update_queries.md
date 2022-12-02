@@ -249,6 +249,41 @@ db.zips.aggregate([
     {$count: "total_zips"}
 ]);
 
+db.sightings.aggregate([
+    {
+        $project: {
+            _id: 0,
+            date: 1,
+            species_common: 1,
+        }
+    }
+])
+
 db.birds.aggregate([
+    {
+        $set: {
+            'class': "bird",
+        }
+    }
     
 ])
+
+db.birds.find({});
+
+db.birds.aggregate([
+    {
+        $match: {
+            common_name: "Eastern Bluebirds",
+        }
+    },
+
+])
+
+
+db.birds.find({}, {common_name:1});
+
+db.sightings.find({species_common: "Eastern Bluebird"}, {species_common: 1, _id:0});
+
+
+db.sightings.find({species_common: "Eastern Bluebird"});
+
