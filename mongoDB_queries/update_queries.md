@@ -249,3 +249,6 @@ db.zips.aggregate([
     {$count: "total_zips"}
 ]);
 
+db.birds.aggregate([
+    
+])
