@@ -257,7 +257,7 @@ db.sightings.aggregate([
             species_common: 1,
         }
     }
-])
+]);
 
 db.birds.aggregate([
     {
@@ -266,7 +266,7 @@ db.birds.aggregate([
         }
     }
     
-])
+]);
 
 db.birds.find({});
 
@@ -276,8 +276,7 @@ db.birds.aggregate([
             common_name: "Eastern Bluebirds",
         }
     },
-
-])
+]);
 
 
 db.birds.find({}, {common_name:1});
@@ -286,4 +285,50 @@ db.sightings.find({species_common: "Eastern Bluebird"}, {species_common: 1, _id:
 
 
 db.sightings.find({species_common: "Eastern Bluebird"});
+
+db.sightings.aggregate([
+    {
+        $match: {
+            species_common: "Eastern Bluebird",
+            date: {
+                    $gt: ISODate("2022-01-01T00:00:00.0Z"),
+                    $lt: ISODate("2023-01-01T00:00:00.0Z"
+            }
+        }
+    },
+    {
+        $count: "bluebird_sightings_2022"
+    }
+]);
+
+db.sightings.aggregate([
+    {
+    $match: {
+        date: {
+        $gt: ISODate('2022-01-01T00:00:00.000Z'),
+        $lt: ISODate('2023-01-01T00:00:00.000Z')
+        },
+        species_common: 'Eastern Bluebird'
+    }
+    }, {
+    $count: 'bluebird_sightings_2022'
+    }
+]);
+
+db.zips.aggregate([
+    {
+        $group:{
+            _id: "$state",
+            total_pop: {$sum: "$pop"}
+        }
+    },
+    {
+        $match: {
+            total_pop:{$lt:1000000}
+        }
+    },
+    {
+        $out: "small_states"
+    }
+])
 
