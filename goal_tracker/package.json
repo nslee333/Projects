@@ -1,0 +1,22 @@
+{
+  "name": "goal_tracker",
+  "version": "1.0.0",
+  "description": "MERN stack tutorial.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.ts",
+    "server": "nodemon backend/server.ts"
+  },
+  "keywords": [],
+  "author": "Nathan Lee",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
