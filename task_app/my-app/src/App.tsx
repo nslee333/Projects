@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import './App.css';
 import {MongoClient} from 'mongodb';
+import * as dotenv from 'dotenv';
 require('dotenv').config();
 
-const client: any = new MongoClient(process.env.uri)
+const client: any = new MongoClient(process.env.URI as string)
 
 function App() {
 

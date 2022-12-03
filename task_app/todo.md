@@ -28,4 +28,3 @@ Basic idea:
 
 [CT]: On enter key press submit to mongoDB.
 
-Stopped at figuring out if .env will work for the string connection or if I just need to do a uri.js file instead.
