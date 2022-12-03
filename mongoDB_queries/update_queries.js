@@ -377,4 +377,33 @@ db.customers.explain().find({birthdate: {$gte: ISODate("1977-01-01")}, active:tr
 
 db.customers.createIndex({active:1, birthdate:-1, name:1}); // Creating a compound index structured like the queries above.
 
+db.customers.explain().find({active:1, birthdate:-1, name:1}); 
+
+db.customers.explain().find({birthdate: {$gte: ISODate("1977-01-01")}, active:true}).sort({birthdate:-1, name:1});
+
+db.accounts.createIndex({account_holder:1, balance:1, account_type:1});
+
+db.accounts.explain().find({account_holder:1, balance:1, account_type:1});
+
+db.accounts.explain().find( { account_holder:"Andrea", balance:{ $gt:5 }}, { account_holder: 1, balance: 1, account_type:1, _id: 0}).sort({ balance: 1 })
+
+db.collection.hideIndex(index);
+
+db.customers.getIndexes();
+
+db.customers.hideIndex('index_name_1');
+
+db.customers.dropIndex('index_name_1'); // Drop index by name.
+
+db.customers.dropIndex({active:1, birthdate:-1, name:1}); // Drop index by key.
+
+db.collection.dropIndexes();
+
+db.coll.dropIndexes('index_name');
+
+db.coll.dropIndexes(['index1', 'index2', ...]);
+
+
+
+
 
