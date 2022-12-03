@@ -401,9 +401,8 @@ db.collection.dropIndexes();
 
 db.coll.dropIndexes('index_name');
 
-db.coll.dropIndexes(['index1', 'index2', ...]);
+db.coll.dropIndexes(['index1', 'index2']);
 
-
-
+db.accounts.dropIndex('account_holder_1');
 
 
