@@ -1,8 +1,11 @@
 import express, {Express, Request, Response} from 'express';
 const dotenv = require('dotenv').config()
 const {errorHandler} = require("./middleware/errorMiddleware")
+const color = require('colors');
+const connectDB = require('./config/db'); 
 const port = process.env.PORT || 5000;
 
+connectDB();
 
 const app = express();
 
