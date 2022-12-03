@@ -9,7 +9,9 @@ const Goal = require("../models/goalModel")
 // @access Private
 
 const getGoals = asyncHandler(async (req: Request, res: Response) => {
-    res.status(200).json({message: 'Get goals'})
+    const goals = await Goal.find();
+
+    res.status(200).json(goals);
 })
 
 // @desc Set Goals
@@ -22,9 +24,11 @@ const setGoal = asyncHandler(async (req: Request, res: Response) => {
         throw new Error('Please add a text field.')
     }
 
+    const goal = await Goal.create({
+        text: req.body.text
+    })
 
-
-    res.status(200).json({message: 'Set goals'})
+    res.status(200).json(goal)
 })
 
 // @desc Update Goals
