@@ -405,4 +405,21 @@ db.coll.dropIndexes(['index1', 'index2']);
 
 db.accounts.dropIndex('account_holder_1');
 
+db.sales.aggregation({
+    "compound": {
+      "filter": [{
+        "text": {
+          "query": "Online",
+          "path": "purchaseMethod"
+        }
+      }],
+      "should": [{
+        "text": {
+          "query": "notepad",
+          "path": "items",
+          "score": {"constant": {"value": 5}}
+        }
+      }]
+    }
+});
 
