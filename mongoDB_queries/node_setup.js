@@ -1,3 +1,3 @@
-// In the app.js file - const {MongoClient} = require('mongodb");
+const {MongoClient} = require('mongodb'); // In app.js file.
 
 module.exports = uri = "connection string";
