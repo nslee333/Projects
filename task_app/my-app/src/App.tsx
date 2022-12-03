@@ -1,6 +1,32 @@
+import { useEffect } from 'react';
 import './App.css';
+import {MongoClient} from 'mongodb';
+require('dotenv').config();
+
+const client: any = new MongoClient(process.env.uri)
 
 function App() {
+
+  useEffect(() => {
+    const keyDownHandler = (event: any) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        
+        // Call submitTask function here.
+      }
+    }
+
+    // Need to fetch tasks from collection on page load.
+
+
+  }, []); // Also consider reloading the tasks whenever submitTask is called.
+
+  const submitTask = async () => {
+    // Need to connect to mongoDB.
+    // Need to use a mongo instance to submit task to database.
+    // Try catch.
+
+  }
 
 
 
